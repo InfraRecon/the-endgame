@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: ea20ac7ff48d0e649a331125e219ce44
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Source Serif Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 622c4a626bcacbe4dad2345a42cc918e, type: 3}
+  - {fileID: 12800000, guid: 3221f80c24b038b4c9ba96b305ca7007, type: 3}
+  - {fileID: 12800000, guid: 052a9a632211c7345b72bbb69a4d92c7, type: 3}
+  - {fileID: 12800000, guid: 296341fec85e4eb409d235c993183e3e, type: 3}
+  - {fileID: 12800000, guid: 2747c3ec0c1c8414ba0a6055648f2d32, type: 3}
+  - {fileID: 12800000, guid: d1697095fae285a45948633a43094f33, type: 3}
+  - {fileID: 12800000, guid: c26dd4d2a30252d4abc240170ba7560b, type: 3}
+  - {fileID: 12800000, guid: b45fe04a6cbb51d4ea2cac23fb6c577d, type: 3}
+  - {fileID: 12800000, guid: d91a6fcb8e35738469fb0ac7a3c25655, type: 3}
+  - {fileID: 12800000, guid: a570d25675c556a4099a201d74fcb28e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

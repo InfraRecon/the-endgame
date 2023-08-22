@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: da2bfa8c17b263d4cad05546e7e1b719
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Miriam CLM
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 962ded5553e251148a7a431449fab75f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

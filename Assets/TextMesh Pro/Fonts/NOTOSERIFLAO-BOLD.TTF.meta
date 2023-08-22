@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6e39e6cd8cd330848a582b162c3f235c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Noto Serif Lao
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3eb34a240e5fc044e89bc8fd4cc375c9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

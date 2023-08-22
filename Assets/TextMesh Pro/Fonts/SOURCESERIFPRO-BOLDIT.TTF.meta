@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: b45fe04a6cbb51d4ea2cac23fb6c577d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Source Serif Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 622c4a626bcacbe4dad2345a42cc918e, type: 3}
+  - {fileID: 12800000, guid: 3221f80c24b038b4c9ba96b305ca7007, type: 3}
+  - {fileID: 12800000, guid: d1697095fae285a45948633a43094f33, type: 3}
+  - {fileID: 12800000, guid: c26dd4d2a30252d4abc240170ba7560b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

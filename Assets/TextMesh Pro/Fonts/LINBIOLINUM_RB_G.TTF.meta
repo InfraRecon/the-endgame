@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 7e10342c8b5bd3c459a7bf28b602f519
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Linux Biolinum G
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 96e6a46fff9581f4a97038a00150a56b, type: 3}
+  - {fileID: 12800000, guid: 81853b8929454d9459e420b357bb24c3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

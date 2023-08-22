@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: fa418cabff8c9b84695f230911d31e6f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - MingLiU-ExtB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4968b001d1ef84d48a8c152f7604340b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

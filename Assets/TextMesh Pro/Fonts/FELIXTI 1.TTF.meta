@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 45db90141d0b28c428c2d0c90386926c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Felix Titling
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: bd888923cce1cb24fb3898d2ceaf39d7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

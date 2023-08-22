@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8c6b16b896c9a83429ee9e7cbc0ca9a9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Noto Naskh Arabic UI
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3bd204827a583a64cb483ffe95486a24, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

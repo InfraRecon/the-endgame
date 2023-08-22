@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8d5bcf108da219e40b7e5f47fe9e0a18
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Noto Sans Lao
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: fb05210723d28c44aa20c8aec3312ab1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

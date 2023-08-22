@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: af897030510afea43b027383840fe95e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Gentium Book Basic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 05a5a649c516e5346a59567b91150344, type: 3}
+  - {fileID: 12800000, guid: aa58602c1eef2b24da81c4164a35809a, type: 3}
+  - {fileID: 12800000, guid: d49c41d1787a32c44a78db1cdfa904b1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

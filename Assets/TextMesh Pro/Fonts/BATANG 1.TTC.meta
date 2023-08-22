@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: fb4e9524dd1793948af0be04da22d835
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Batang
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d85c980eee8048840aee3c52fa267028, type: 3}
+  - {fileID: 12800000, guid: a21f473202ef1fe45a4bd30983f9b873, type: 3}
+  - {fileID: 12800000, guid: 47733454e6de3444692bb3bc48163857, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 061828c86df5f63439e3182ae72c9d72
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Frank Ruhl Hofshi
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 74015707005e21940a78a439c9e746bb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

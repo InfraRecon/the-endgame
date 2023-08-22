@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: eee7de7ed1683b24c836f2ba79d68196
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Dubai
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 50ba8811f0464f7448b37d36055fbc91, type: 3}
+  - {fileID: 12800000, guid: 9643410b6d8c5904fb37bd750616d654, type: 3}
+  - {fileID: 12800000, guid: 645f93e50c89b9a438ffafba4578bc60, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

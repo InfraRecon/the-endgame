@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7ccac16a1caaf68499abc1e6640c9666
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - David CLM
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3a429eb00287439459786f5f558f8846, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
