@@ -12,6 +12,8 @@ public class EyeAnimator : MonoBehaviour
     public GameObject pupilLeft;
     public GameObject pupilRight;
 
+    public string faceTriggerName;
+
     private float timer;
 
     void Start()
@@ -28,11 +30,13 @@ public class EyeAnimator : MonoBehaviour
         // If the timer has reached zero or less, trigger the animation and reset the timer with a new random value
         if (timer <= 0f)
         {
-            animator.SetTrigger("IsBlinking");
+            animator.SetTrigger(faceTriggerName);
             timer = Random.Range(minTime, maxTime);
         }
 
-        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Neutral Blinking"))
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Neutral Blinking") ||
+        animator.GetCurrentAnimatorStateInfo(0).IsName("Scream Blinking") ||
+        animator.GetCurrentAnimatorStateInfo(0).IsName("Happy Blinking"))
         {
             turnOffPupils();
         }
@@ -42,15 +46,24 @@ public class EyeAnimator : MonoBehaviour
         }
     }
 
-    void NeutralFace()
+    public void NeutralFace()
     {
-
+        animator.SetFloat("Blend",1);
+        faceTriggerName = "IsBlinking";
     }
 
-    void ScreamFace()
+    public void ScreamFace()
     {
-
+        animator.SetFloat("Blend",2);
+        faceTriggerName = "IsScreamBlinking";
     }
+
+    public void HappyFace()
+    {
+        animator.SetFloat("Blend",3);
+        faceTriggerName = "IsHappyBlinking";
+    }
+
     void turnONPupils()
     {
         pupilLeft.SetActive(true);

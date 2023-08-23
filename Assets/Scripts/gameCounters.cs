@@ -19,7 +19,14 @@ public class gameCounters : MonoBehaviour
     ///
 
     [SerializeField] private int bankedSoulEssence = 0;
+    public TextMeshProUGUI bankedSoulEssenceText;
+
+    [SerializeField] private int bankedBoxDestroyed = 0;
+    public TextMeshProUGUI bankedBoxDestroyedText;
+
     [SerializeField] private int bankedGemItems = 0;
+    public TextMeshProUGUI bankedGemItemsText;
+
     [SerializeField] private int boxMultiplier = 0;
     [SerializeField] private int reviveMultiplier = 0;
 
@@ -159,37 +166,116 @@ public class gameCounters : MonoBehaviour
     }
 
     /////
+    float defaultSoulEssence = 0;
+    float defaultBoxDestroyed = 0;
+    float defaultGemItem = 0;
 
     public void tallySoulsAndGems()
     {
-        if(soulEssence >0)
-        {
-            while(soulEssence > 0)
-            {
-                bankedSoulEssence++;
-            }
-        }
-        else if(soulEssence == 0)
-        {
-            Debug.Log("Soul Tally Done");
+        bankedSoulEssence = bankedSoulEssence + (soulEssence) * revives;
+        bankedBoxDestroyed = bankedBoxDestroyed + boxesDestroyed;
+        bankedGemItems = bankedGemItems + gemItem;
 
-            bankedSoulEssence = bankedSoulEssence + boxMultiplier;
-            bankedSoulEssence = bankedSoulEssence * reviveMultiplier;
-            
-            if(gemItem > 0)
+        soulEssence = 0;
+        updateSoulEssence(0);
+        gemItem = 0;
+        updateGemItem(0);
+        boxesDestroyed = 0;
+        updateBoxesDestroyed(0);
+        revives = 3;
+        updateRevives(0);
+
+        defaultSoulEssence = 0;
+    }
+
+
+    public void pretendTally()
+    {
+        defaultSoulEssence = 0f;
+        defaultBoxDestroyed = 0f;
+        defaultGemItem = 0f;
+        UpdateStatsText();
+
+        StartCoroutine(AddOverTime());
+    }
+
+    private void UpdateStatsText()
+    {
+        // if(defaultSoulEssence >= (soulEssence * revives))
+        // {
+        //     pulseGameObject pulseSoulStat = bankedSoulEssenceText.gameObject.transform.parent.GetComponent<pulseGameObject>();
+        //     pulseSoulStat.Pulse();
+        // }
+
+        // if(defaultBoxDestroyed >= boxesDestroyed)
+        // {
+        //     pulseGameObject pulseSoulStat = bankedBoxDestroyedText.gameObject.transform.parent.GetComponent<pulseGameObject>();
+        //     pulseSoulStat.Pulse();
+        // }
+
+        // if(defaultGemItem >= gemItem)
+        // {
+        //     pulseGameObject pulseSoulStat = bankedGemItemsText.gameObject.transform.parent.GetComponent<pulseGameObject>();
+        //     pulseSoulStat.Pulse();
+        // }
+
+        bankedSoulEssenceText.text = defaultSoulEssence.ToString();
+        bankedBoxDestroyedText.text = defaultBoxDestroyed.ToString();
+        bankedGemItemsText.text = defaultGemItem.ToString();
+    }
+
+    private IEnumerator AddOverTime()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.025f);
+            if (defaultSoulEssence < (soulEssence * revives))
             {
-                while(gemItem > 0)
+                defaultSoulEssence += 1f;
+                UpdateStatsText();
+
+                if(defaultSoulEssence + 1f == (soulEssence * revives))
                 {
-                    bankedGemItems++;
+                    pulseGameObject pulseSoulStat = bankedSoulEssenceText.gameObject.transform.parent.GetComponent<pulseGameObject>();
+                    pulseSoulStat.Pulse();
                 }
             }
-            else if(gemItem == 0)
+
+            else if (defaultBoxDestroyed < boxesDestroyed)
             {
-                Debug.Log("Soul Tally Done");
-                
-                bankedGemItems = bankedGemItems + boxMultiplier;
-                bankedGemItems = bankedGemItems * reviveMultiplier;
+                defaultBoxDestroyed += 1f;
+                UpdateStatsText();
+
+                if(defaultBoxDestroyed + 1f == boxesDestroyed)
+                {
+                    pulseGameObject pulseSoulStat = bankedBoxDestroyedText.gameObject.transform.parent.GetComponent<pulseGameObject>();
+                    pulseSoulStat.Pulse();
+                }
+            }
+
+            else if (defaultGemItem < gemItem)
+            {
+                defaultGemItem += 1f;
+                UpdateStatsText();
+
+                if(defaultGemItem + 1f == gemItem)
+                {
+                    pulseGameObject pulseSoulStat = bankedGemItemsText.gameObject.transform.parent.GetComponent<pulseGameObject>();
+                    pulseSoulStat.Pulse();
+                }
             }
         }
     }
+
+    // public void pretendTally()
+    // {
+    //     bankedSoulEssenceText.text = defaultSoulEssence.ToString();
+
+    //     if(defaultSoulEssence < ((soulEssence) * revives))
+    //     {
+    //         defaultSoulEssence += 0.001f;
+    //         bankedSoulEssenceText.text = Mathf.Round(Mathf.Floor(defaultSoulEssence)).ToString();
+    //         pretendTally();
+    //     }
+    // }
 }
