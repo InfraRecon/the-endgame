@@ -85,8 +85,13 @@ public class EnemyAISystem : MonoBehaviour
 
     public float maxTimeout = 10f; // The maximum time allowed to reach the target
 
+    public List<GameObject> enemySkins =  new List<GameObject>();
+
     private void Start()
     {
+        int randomSkin = Random.Range(0,enemySkins.Count);
+        enemySkins[randomSkin].SetActive(true);
+
         player = GameObject.Find("Ghost Player");
         controller = GetComponent<CharacterController>();
 

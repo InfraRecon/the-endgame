@@ -14,13 +14,21 @@ public class pressAnyKeyToStart : MonoBehaviour
     public GameObject menuScreen;
     public bool menuScreenActive = false;
 
+    public GameObject levelSelectScreen;
+    public GameObject loadingScreen;
+    public GameObject deathScreen;
+    public GameObject statScreen;
+
     public ThirdPersonCameraMovement thirdPersonCameraMovement;
     public ThirdPersonCameraAttack thirdPersonCameraAttack; 
+
+    public float inactivityTime = 30.0f;
 
     void Start()
     {
         thirdPersonCameraMovement.enabled = false;
         thirdPersonCameraAttack.enabled = false;
+        StartCoroutine(WaitForInactivity());
     }
 
     void Update()
@@ -29,12 +37,21 @@ public class pressAnyKeyToStart : MonoBehaviour
         {
             if (Input.anyKey)
             {
-                toggleStartScreen();
+                toggleStartScreen(false);
                 startScreenActive = false;
             }
         }
+        else if(startScreen.activeSelf)
+        {
+                toggleStartScreen(true);
+                startScreenActive = true;
+        }
 
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.Z) && 
+        !startScreen.activeSelf && 
+        !levelSelectScreen.activeSelf && 
+        !deathScreen.activeSelf &&
+        !statScreen.activeSelf)
         {
             if(!menuScreenActive)
             {
@@ -48,13 +65,46 @@ public class pressAnyKeyToStart : MonoBehaviour
             }
         }
     }
-    public void toggleStartScreen()
+
+    private IEnumerator WaitForInactivity()
     {
-        thirdPersonCameraMovement.enabled = true;
-        thirdPersonCameraAttack.enabled = true;
-        startScreenCamera.SetActive(false);
-        mainScreenCamera.SetActive(true);
-        startScreen.SetActive(false);
+        while (true)
+        {
+            if (!Input.anyKey)
+            {
+                yield return new WaitForSeconds(inactivityTime);
+                toggleStartScreen(true);
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+    }
+
+    public void toggleStartScreen(bool startScreenIsActive)
+    {
+        if(!startScreenIsActive)
+        {   
+            thirdPersonCameraMovement.enabled = true;
+            thirdPersonCameraAttack.enabled = true;
+            startScreenCamera.SetActive(false);
+            mainScreenCamera.SetActive(true);
+            startScreen.SetActive(false);
+        }
+        else if(startScreenIsActive)
+        {   
+            thirdPersonCameraMovement.enabled = false;
+            thirdPersonCameraAttack.enabled = false;
+            startScreenCamera.SetActive(true);
+            mainScreenCamera.SetActive(false);
+            startScreen.SetActive(true);
+            menuScreen.SetActive(false);
+            levelSelectScreen.SetActive(false);
+            loadingScreen.SetActive(false);
+            deathScreen.SetActive(false);
+            statScreen.SetActive(false);
+        }
     }
     public void toggleMenuScreen(bool toggle)
     {
