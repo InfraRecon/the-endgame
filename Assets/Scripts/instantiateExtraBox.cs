@@ -21,7 +21,7 @@ public class instantiateExtraBox : MonoBehaviour
 
         if(randomSpawnExtra)
         {
-            extraBox = Instantiate(boxPrefabs[randomBoxNum], new Vector3(transform.position.x,transform.position.y + 1.9f,transform.position.z), Quaternion.identity);
+            extraBox = Instantiate(boxPrefabs[randomBoxNum], new Vector3(transform.position.x,transform.position.y + 2.5f,transform.position.z), Quaternion.identity);
             extraBox.transform.parent = transform.parent;
         }
     }

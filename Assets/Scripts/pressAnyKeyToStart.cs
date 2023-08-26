@@ -22,13 +22,10 @@ public class pressAnyKeyToStart : MonoBehaviour
     public ThirdPersonCameraMovement thirdPersonCameraMovement;
     public ThirdPersonCameraAttack thirdPersonCameraAttack; 
 
-    public float inactivityTime = 30.0f;
-
     void Start()
     {
         thirdPersonCameraMovement.enabled = false;
         thirdPersonCameraAttack.enabled = false;
-        StartCoroutine(WaitForInactivity());
     }
 
     void Update()
@@ -48,7 +45,6 @@ public class pressAnyKeyToStart : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.Z) && 
-        !startScreen.activeSelf && 
         !levelSelectScreen.activeSelf && 
         !deathScreen.activeSelf &&
         !statScreen.activeSelf)
@@ -62,22 +58,6 @@ public class pressAnyKeyToStart : MonoBehaviour
             {
                 toggleMenuScreen(false);
                 menuScreenActive = false;
-            }
-        }
-    }
-
-    private IEnumerator WaitForInactivity()
-    {
-        while (true)
-        {
-            if (!Input.anyKey)
-            {
-                yield return new WaitForSeconds(inactivityTime);
-                toggleStartScreen(true);
-            }
-            else
-            {
-                yield return null;
             }
         }
     }
@@ -108,11 +88,21 @@ public class pressAnyKeyToStart : MonoBehaviour
     }
     public void toggleMenuScreen(bool toggle)
     {
-        thirdPersonCameraMovement.enabled = !toggle;
-        thirdPersonCameraAttack.enabled = !toggle;
-        startScreenCamera.SetActive(!toggle);
-        mainScreenCamera.SetActive(!toggle);
-        mainMenuCamera.SetActive(toggle);
-        menuScreen.SetActive(toggle);
+        if(toggle)
+        {
+            thirdPersonCameraMovement.enabled = false;
+            thirdPersonCameraAttack.enabled = false;
+            startScreenCamera.SetActive(false);
+            mainMenuCamera.SetActive(true);
+            menuScreen.SetActive(true);
+            startScreen.SetActive(false);
+        }
+        else if(!toggle)
+        {
+            thirdPersonCameraMovement.enabled = true;
+            thirdPersonCameraAttack.enabled = true;
+            mainMenuCamera.SetActive(false);
+            menuScreen.SetActive(false);
+        }
     }
 }

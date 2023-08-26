@@ -73,12 +73,12 @@ public class ThirdPersonCameraAttack : MonoBehaviour
 
     IEnumerator WaitAndPrint()
     {
-        Debug.Log("Coroutine started");
+        //Debug.Log("Coroutine started");
         Vector3 attackPosition = transform.position;
         thirdPersonCameraMovement.enabled = false;
         transform.position = attackPosition;
         yield return new WaitForSeconds(waitTime);
-        Debug.Log("Coroutine finished after " + waitTime + " seconds");
+        //Debug.Log("Coroutine finished after " + waitTime + " seconds");
         thirdPersonCameraMovement.enabled = true;
     }
 

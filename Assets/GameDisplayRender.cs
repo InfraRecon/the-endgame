@@ -40,8 +40,8 @@ public class GameDisplayRender : MonoBehaviour
 
     public void UpdateRenderTextureResolutionTo8bit()
     {
-        newWidth = 57*5; // New width for the Render Texture
-        newHeight = 32*5; // New height for the Render Texture
+        newWidth = 57*8; // New width for the Render Texture
+        newHeight = 32*8; // New height for the Render Texture
         UpdateRenderTextureResolution();
     }
 

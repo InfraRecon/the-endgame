@@ -20,12 +20,11 @@ public class centerGameObjectToMesh : MonoBehaviour
         Vector3 originRight = raycastOriginsRight.position;
         Vector3 direction = -transform.up;
         RaycastHit hitInfoLeft;
-
         // Cast the ray and show debug information
         if (Physics.Raycast(originLeft, direction, out hitInfoLeft, raycastDistance, raycastLayers))
         {
-            Debug.DrawRay(originLeft, direction * hitInfoLeft.distance, raycastColor);
-            Debug.LogFormat("Raycast hit {0} at distance {1} from {2}", hitInfoLeft.collider.name, hitInfoLeft.distance, originLeft);
+            // Debug.DrawRay(originLeft, direction * hitInfoLeft.distance, raycastColor);
+            // Debug.LogFormat("Raycast hit {0} at distance {1} from {2}", hitInfoLeft.collider.name, hitInfoLeft.distance, originLeft);
         }
         else
         {
@@ -38,12 +37,12 @@ public class centerGameObjectToMesh : MonoBehaviour
         RaycastHit hitInfoRight;
         if (Physics.Raycast(originRight, direction, out hitInfoRight, raycastDistance, raycastLayers))
         {
-            Debug.DrawRay(originRight, direction * hitInfoRight.distance, raycastColor);
-            Debug.LogFormat("Raycast hit {0} at distance {1} from {2}", hitInfoRight.collider.name, hitInfoRight.distance, originRight);
+            // Debug.DrawRay(originRight, direction * hitInfoRight.distance, raycastColor);
+            // Debug.LogFormat("Raycast hit {0} at distance {1} from {2}", hitInfoRight.collider.name, hitInfoRight.distance, originRight);
         }
         else
         {
-            Debug.DrawRay(originRight, direction * raycastDistance, raycastColor);
+            //Debug.DrawRay(originRight, direction * raycastDistance, raycastColor);
 
             //transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
             MoveSmoothly(1f);

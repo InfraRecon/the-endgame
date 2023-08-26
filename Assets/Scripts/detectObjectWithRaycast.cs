@@ -155,7 +155,7 @@ using System;
 
 public class detectObjectWithRaycast : MonoBehaviour
 {
-    public GameObject reticle;
+    // public GameObject reticle;
     public float maxRayDistance = 100f; // The maximum distance the raycast can travel.
     public LayerMask groundLayer; // The layer(s) that represent the ground.
 
@@ -182,7 +182,7 @@ public class detectObjectWithRaycast : MonoBehaviour
 
     private void Start()
     {
-        reticle = Instantiate(reticle);
+        // reticle = Instantiate(reticle);
     }
 
     private void Update()
@@ -234,18 +234,18 @@ public class detectObjectWithRaycast : MonoBehaviour
 
         RaycastHit hit;
         //Reticle on Stuff
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.5f, groundLayer))
-        {
-            raycastDistance = hit.distance;
-            reticle.transform.position = new Vector3(transform.position.x, transform.position.y + raycastDistance + 0.1f, transform.position.z); 
-            Debug.Log("Raycast hit ground at distance: " + raycastDistance);
-        }
-        else
-        {
-            reticle.transform.position = new Vector3(transform.position.x, reticle.transform.position.y, transform.position.z); 
-            raycastDistance = maxRayDistance;
-            Debug.Log("Raycast did not hit ground.");
-        }
+        // if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.5f, groundLayer))
+        // {
+        //     raycastDistance = hit.distance;
+        //     reticle.transform.position = new Vector3(transform.position.x, transform.position.y + raycastDistance + 0.1f, transform.position.z); 
+        //     Debug.Log("Raycast hit ground at distance: " + raycastDistance);
+        // }
+        // else
+        // {
+        //     reticle.transform.position = new Vector3(transform.position.x, reticle.transform.position.y, transform.position.z); 
+        //     raycastDistance = maxRayDistance;
+        //     Debug.Log("Raycast did not hit ground.");
+        // }
 
         //Jumping on Stuff
         Collider[] jumpHitColliders = Physics.OverlapSphere(transform.position, maxRayDistance,groundLayer);

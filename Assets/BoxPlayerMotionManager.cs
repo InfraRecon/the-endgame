@@ -52,7 +52,20 @@ public class BoxPlayerMotionManager : MonoBehaviour
                 float moveHorizontal = Input.GetAxis("Horizontal");
                 float moveVertical = Input.GetAxis("Vertical");
 
-                Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
+                // Get the camera's forward and right vectors
+                Vector3 cameraForward = Camera.main.transform.forward;
+                Vector3 cameraRight = Camera.main.transform.right;
+
+                // Remove the y-component to make the movement stay on the horizontal plane
+                cameraForward.y = 0;
+                cameraRight.y = 0;
+                cameraForward.Normalize();
+                cameraRight.Normalize();
+
+                // Calculate the movement direction in camera space
+                Vector3 movement = cameraRight * moveHorizontal + cameraForward * moveVertical;
+
+                // Apply the movement speed and force multiplier
                 Vector3 force = movement * moveSpeed * forceMultiplier;
 
                 rb.AddForce(force);

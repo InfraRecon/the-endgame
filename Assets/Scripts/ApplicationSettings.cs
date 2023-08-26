@@ -15,7 +15,7 @@ public class ApplicationSettings : MonoBehaviour
 
     public void Update()
     {
-        frameRateText.text = Mathf.Round(1.0f / Time.deltaTime) + " fps";
+        frameRateText.text = (Mathf.Round(1.0f / Time.deltaTime)).ToString();
     }
 
     public void bruteForceFramerate(int fps)

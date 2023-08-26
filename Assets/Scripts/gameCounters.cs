@@ -20,12 +20,18 @@ public class gameCounters : MonoBehaviour
 
     [SerializeField] private int bankedSoulEssence = 0;
     public TextMeshProUGUI bankedSoulEssenceText;
+    [SerializeField] private int bankedSoulEssenceWorld = 0;
+    public TextMeshProUGUI bankedSoulEssenceWorldText;
 
     [SerializeField] private int bankedBoxDestroyed = 0;
     public TextMeshProUGUI bankedBoxDestroyedText;
+    [SerializeField] private int bankedBoxDestroyedWorld = 0;
+    public TextMeshProUGUI bankedBoxDestroyedWorldText;
 
     [SerializeField] private int bankedGemItems = 0;
     public TextMeshProUGUI bankedGemItemsText;
+    [SerializeField] private int bankedGemItemsWorld = 0;
+    public TextMeshProUGUI bankedGemItemsWorldText;
 
     [SerializeField] private int boxMultiplier = 0;
     [SerializeField] private int reviveMultiplier = 0;
@@ -175,6 +181,14 @@ public class gameCounters : MonoBehaviour
         bankedSoulEssence = bankedSoulEssence + (soulEssence) * revives;
         bankedBoxDestroyed = bankedBoxDestroyed + boxesDestroyed;
         bankedGemItems = bankedGemItems + gemItem;
+
+        bankedSoulEssenceWorld += bankedSoulEssence;
+        bankedBoxDestroyedWorld += bankedBoxDestroyed;
+        bankedGemItemsWorld += bankedGemItems;
+
+        bankedSoulEssenceWorldText.text = bankedSoulEssenceWorld.ToString();
+        bankedBoxDestroyedWorldText.text = bankedBoxDestroyedWorld.ToString();
+        bankedGemItemsWorldText.text = bankedGemItemsWorld.ToString();
 
         soulEssence = 0;
         updateSoulEssence(0);

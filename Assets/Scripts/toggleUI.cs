@@ -25,7 +25,7 @@ public class toggleUI : MonoBehaviour
         // Check if the user has triggered the movement and the object is not already moving
         if(menu != null)
         {    
-            if(menu.activeSelf)
+            if(menu.activeSelf && menu.transform.parent.transform.gameObject.activeSelf)
             {
                 triggerUI();
             }

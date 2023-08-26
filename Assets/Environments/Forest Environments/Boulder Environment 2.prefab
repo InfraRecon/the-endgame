@@ -902,8 +902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToInstantiate:
   - {fileID: 1966725490030149072, guid: 76ce7157775671046bf1777b909e733f, type: 3}
-  numObjectsToInstantiate: 20
-  offset: -1
+  numObjectsToInstantiate: 50
+  offset: 0
   randomSeed: 1
   randomPossibility: 1
 --- !u!114 &6632245409310018368
@@ -921,10 +921,11 @@ MonoBehaviour:
   objectsToInstantiate:
   - {fileID: 6478346501547055653, guid: c8be4540448bfcd4f83b3c3303e632d2, type: 3}
   - {fileID: 6478346501547055653, guid: ec44cb45477fbc1488d81ff55b9d83c2, type: 3}
-  numObjectsToInstantiate: 1
+  - {fileID: 6478346501547055653, guid: feda3ac9b640e224e849344b605635d9, type: 3}
+  numObjectsToInstantiate: 5
   offset: 0
   randomSeed: 1
-  randomPossibility: 25
+  randomPossibility: 50
 --- !u!1 &5819284268720554378
 GameObject:
   m_ObjectHideFlags: 0

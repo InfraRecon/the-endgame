@@ -1719,6 +1719,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6507901977716847365, guid: 61e4da090835b7e44a3ed217fab73d37, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6183167237577006292}
+    - targetCorrespondingSourceObject: {fileID: 6507901977716847365, guid: 61e4da090835b7e44a3ed217fab73d37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 373576286437424924}
   m_SourcePrefab: {fileID: 100100000, guid: 61e4da090835b7e44a3ed217fab73d37, type: 3}
 --- !u!4 &3110092309311324605 stripped
 Transform:
@@ -1792,7 +1795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToInstantiate:
-  - {fileID: 1966725490030149072, guid: db1e351e2b752db46a2b1c839d698878, type: 3}
+  - {fileID: 1966725490030149072, guid: 76ce7157775671046bf1777b909e733f, type: 3}
   numObjectsToInstantiate: 50
   offset: 0
   randomSeed: 1
@@ -1840,6 +1843,26 @@ MonoBehaviour:
   offset: 0
   randomSeed: 1
   randomPossibility: 15
+--- !u!114 &373576286437424924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8571277361495905619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5971026e81a80a45939dc9a0b817050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToInstantiate:
+  - {fileID: 6478346501547055653, guid: c8be4540448bfcd4f83b3c3303e632d2, type: 3}
+  - {fileID: 6478346501547055653, guid: ec44cb45477fbc1488d81ff55b9d83c2, type: 3}
+  - {fileID: 6478346501547055653, guid: feda3ac9b640e224e849344b605635d9, type: 3}
+  numObjectsToInstantiate: 5
+  offset: 0
+  randomSeed: 1
+  randomPossibility: 50
 --- !u!1001 &3771747337602224449
 PrefabInstance:
   m_ObjectHideFlags: 0
