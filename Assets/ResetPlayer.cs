@@ -13,7 +13,7 @@ public class ResetPlayer : MonoBehaviour
         thirdPersonCameraMovement = player.GetComponent<ThirdPersonCameraMovement>();
     }
 
-    public void restePlayerToHub()
+    public void resetPlayerToHub()
     {
         StartCoroutine(ExampleCoroutine());
     }

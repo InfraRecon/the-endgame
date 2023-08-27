@@ -49,8 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a72811462723c4dac0ab6a7e7bd2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleMin: 150
-  scaleMax: 200
+  scaleMin: 300
+  scaleMax: 400
+  xMultiply: 1
+  yMultiply: 1
+  zMultiply: 1
 --- !u!114 &2854498683413136652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,9 +277,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2854421508652986114}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 0.01, y: 0.01, z: 0.13}
   m_Center: {x: 0, y: 0, z: 0.06}
 --- !u!1 &5121660983421876891

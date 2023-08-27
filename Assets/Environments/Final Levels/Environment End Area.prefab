@@ -1465,7 +1465,6 @@ Transform:
   - {fileID: 4530643954430487540}
   - {fileID: 4321242089061876626}
   - {fileID: 3541105907812310435}
-  - {fileID: 8029641252860074250}
   - {fileID: 3407774496588987081}
   - {fileID: 3545051263138675657}
   - {fileID: 2507830139133168044}
@@ -1481,6 +1480,7 @@ Transform:
   - {fileID: 700004111219046284}
   - {fileID: 8009208383832456681}
   - {fileID: 4031233759767772117}
+  - {fileID: 8029641252860074250}
   m_Father: {fileID: 7514100967876831555}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7138,6 +7138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reset: {fileID: 0}
+  resetToDesert: {fileID: 0}
   loading: {fileID: 0}
   automaticReset: 0
 --- !u!114 &4653256458744490612

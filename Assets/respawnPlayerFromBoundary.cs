@@ -5,6 +5,7 @@ using UnityEngine;
 public class respawnPlayerFromBoundary : MonoBehaviour
 {
     public ResetPlayer reset;
+    public ResetPlayer resetToDesert;
     public loadingScreenFader loading;
     private bool insideTrigger = false;
 
@@ -14,6 +15,7 @@ public class respawnPlayerFromBoundary : MonoBehaviour
     void Start()
     {
         reset = GameObject.Find("ResetPosition").GetComponent<ResetPlayer>();
+        resetToDesert = GameObject.Find("DesertPosition").GetComponent<ResetPlayer>();
         loading = GameObject.Find("Loading Plane").GetComponent<loadingScreenFader>();
     }
 
@@ -22,9 +24,15 @@ public class respawnPlayerFromBoundary : MonoBehaviour
     {
         if(insideTrigger && !automaticReset && Input.GetKeyDown(KeyCode.C))
         {
-            reset.restePlayerToHub();
+            reset.resetPlayerToHub();
             loading.StartFade();
         }
+    }
+
+    public void ResetToDesert()
+    {
+        resetToDesert.resetPlayerToHub();
+        loading.StartFade();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,7 +42,7 @@ public class respawnPlayerFromBoundary : MonoBehaviour
             insideTrigger = true;
             if(automaticReset)
             {
-                reset.restePlayerToHub();
+                reset.resetPlayerToHub();
                 loading.StartFade();
             }
         }

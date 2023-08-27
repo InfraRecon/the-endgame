@@ -25,30 +25,30 @@ public class EnvironmentSpawnManager : MonoBehaviour
         newLevelBinParent = GameObject.Find("Level Environment Bin").GetComponent<Transform>();
         locationToInstantiate = gameObject.transform.GetChild(0).transform;
         
-        if(!isStarterHub)
-        {
-            LevelNumberVar = Random.Range(1,3);
-            //1 Up, 2 Straight,3 Down
+        // if(!isStarterHub)
+        // {
+        //     LevelNumberVar = Random.Range(1,3);
+        //     //1 Up, 2 Straight,3 Down
 
-            if(LevelNumberVar == 1)
-            {
-                transform.position = new Vector3(transform.position.x,transform.position.y + 2.5f,transform.position.z);
-                transform.rotation = Quaternion.Euler(-5,transform.eulerAngles.y,transform.eulerAngles.z);
-                //transform.GetChild(0).transform.localPosition = new Vector3(0,-2.5f,locationToInstantiate.localPosition.z);
-            }
-            else if(LevelNumberVar == 2)
-            {
-                transform.position = new Vector3(transform.position.x,transform.position.y, transform.position.z);
-                transform.rotation = Quaternion.Euler(0,0,0);
-                //transform.GetChild(0).transform.localPosition = new Vector3(0,0,locationToInstantiate.localPosition.z);
-            }
-            else if(LevelNumberVar == 3)
-            {
-                transform.position = new Vector3(transform.position.x,transform.position.y-2.5f,transform.position.z);
-                transform.rotation = Quaternion.Euler(5,transform.eulerAngles.y,transform.eulerAngles.z);
-                //transform.GetChild(0).transform.localPosition = new Vector3(0,2.5f,locationToInstantiate.localPosition.z);
-            }
-        }
+        //     if(LevelNumberVar == 1)
+        //     {
+        //         transform.position = new Vector3(transform.position.x,transform.position.y + 2.5f,transform.position.z);
+        //         transform.rotation = Quaternion.Euler(-5,transform.eulerAngles.y,transform.eulerAngles.z);
+        //         //transform.GetChild(0).transform.localPosition = new Vector3(0,-2.5f,locationToInstantiate.localPosition.z);
+        //     }
+        //     else if(LevelNumberVar == 2)
+        //     {
+        //         transform.position = new Vector3(transform.position.x,transform.position.y, transform.position.z);
+        //         transform.rotation = Quaternion.Euler(0,0,0);
+        //         //transform.GetChild(0).transform.localPosition = new Vector3(0,0,locationToInstantiate.localPosition.z);
+        //     }
+        //     else if(LevelNumberVar == 3)
+        //     {
+        //         transform.position = new Vector3(transform.position.x,transform.position.y-2.5f,transform.position.z);
+        //         transform.rotation = Quaternion.Euler(5,transform.eulerAngles.y,transform.eulerAngles.z);
+        //         //transform.GetChild(0).transform.localPosition = new Vector3(0,2.5f,locationToInstantiate.localPosition.z);
+        //     }
+        // }
     }
 
     private void FixedUpdate()
@@ -57,7 +57,7 @@ public class EnvironmentSpawnManager : MonoBehaviour
         {
             dist = Vector3.Distance(player.transform.position, transform.position);
 
-            if (dist > 200f * transform.localScale.z)
+            if (dist > 400f * transform.localScale.z)
             {
                 Destroy(gameObject);
             }

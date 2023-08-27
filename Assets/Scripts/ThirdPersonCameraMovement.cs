@@ -59,6 +59,7 @@ public class ThirdPersonCameraMovement : MonoBehaviour
     public bool sliding = false;
     public float rotationSpeed = 10000000f; // The speed of rotation
     public float rotationLimit = 10f; // The maximum angle the gameobject can rotate
+    public GameObject slidingEffect;
 
 ///Sliding
     public float forceMagnitude = 2f;  // The magnitude of the continuous force
@@ -402,11 +403,13 @@ public class ThirdPersonCameraMovement : MonoBehaviour
             ghostAnimator.SetBool("IsDashing",true);
             sliding = IsSliding;
             keepSpeed = true;
+            slidingEffect.SetActive(true);
         }
         else if(IsSliding == false)
         {
             ghostAnimator.SetBool("IsDashing",false);
             sliding = false;
+            slidingEffect.SetActive(false);
         }
     }
 

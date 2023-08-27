@@ -33,6 +33,11 @@ public class gameCounters : MonoBehaviour
     [SerializeField] private int bankedGemItemsWorld = 0;
     public TextMeshProUGUI bankedGemItemsWorldText;
 
+    [SerializeField] private int bankedRevives = 0;
+    public TextMeshProUGUI bankedRevivesText;
+    [SerializeField] private int bankedRevivesWorld = 0;
+    public TextMeshProUGUI bankedRevivesWorldText;
+
     [SerializeField] private int boxMultiplier = 0;
     [SerializeField] private int reviveMultiplier = 0;
 
@@ -130,7 +135,7 @@ public class gameCounters : MonoBehaviour
         if(playerIsDead)
         {
             loadingScreen.StartFade();
-            reset.restePlayerToHub();
+            reset.resetPlayerToHub();
             resetRevives();
         }
         waiting = false;
@@ -175,20 +180,26 @@ public class gameCounters : MonoBehaviour
     float defaultSoulEssence = 0;
     float defaultBoxDestroyed = 0;
     float defaultGemItem = 0;
+    float defaultRevives = 0;
+
+    float calcSecondsPerItem = 1f;
 
     public void tallySoulsAndGems()
     {
-        bankedSoulEssence = bankedSoulEssence + (soulEssence) * revives;
+        bankedSoulEssence = bankedSoulEssence + (soulEssence * revives);
         bankedBoxDestroyed = bankedBoxDestroyed + boxesDestroyed;
         bankedGemItems = bankedGemItems + gemItem;
+        bankedRevives = bankedRevives + revives;
 
         bankedSoulEssenceWorld += bankedSoulEssence;
         bankedBoxDestroyedWorld += bankedBoxDestroyed;
         bankedGemItemsWorld += bankedGemItems;
+        bankedRevivesWorld += bankedRevives;
 
         bankedSoulEssenceWorldText.text = bankedSoulEssenceWorld.ToString();
         bankedBoxDestroyedWorldText.text = bankedBoxDestroyedWorld.ToString();
         bankedGemItemsWorldText.text = bankedGemItemsWorld.ToString();
+        bankedRevivesWorldText.text = bankedRevivesWorld.ToString();
 
         soulEssence = 0;
         updateSoulEssence(0);
@@ -208,6 +219,7 @@ public class gameCounters : MonoBehaviour
         defaultSoulEssence = 0f;
         defaultBoxDestroyed = 0f;
         defaultGemItem = 0f;
+        defaultRevives = 0f;
         UpdateStatsText();
 
         StartCoroutine(AddOverTime());
@@ -233,63 +245,125 @@ public class gameCounters : MonoBehaviour
         //     pulseSoulStat.Pulse();
         // }
 
-        bankedSoulEssenceText.text = defaultSoulEssence.ToString();
-        bankedBoxDestroyedText.text = defaultBoxDestroyed.ToString();
-        bankedGemItemsText.text = defaultGemItem.ToString();
+        bankedSoulEssenceText.text = Mathf.Round(defaultSoulEssence).ToString();
+        bankedBoxDestroyedText.text = Mathf.Round(defaultBoxDestroyed).ToString();
+        bankedGemItemsText.text = Mathf.Round(defaultGemItem).ToString();
+        bankedRevivesText.text = Mathf.Round(defaultRevives).ToString();
     }
+
+    float totalTime = 3f; // Total time for the addition to complete
+    float startTime = 0f; // Record the start time
+    float targetValue = 0f;
 
     private IEnumerator AddOverTime()
-    {
+    { 
+        totalTime = 3f; // Total time for the addition to complete
+        startTime = Time.time; // Record the start time
         while (true)
         {
-            yield return new WaitForSeconds(0.025f);
-            if (defaultSoulEssence < (soulEssence * revives))
+            if(defaultSoulEssence < soulEssence)
             {
-                defaultSoulEssence += 1f;
+                targetValue = soulEssence; // Target value to reach
+
+                float currentTime = Time.time - startTime;
+                float progress = currentTime / totalTime; // Calculate the progress
+
+                // Calculate the new value based on the progress and target value
+                float newValue = Mathf.Lerp(0, targetValue, progress);
+
+                // Update the wait time based on the new value
+                calcSecondsPerItem = totalTime / (targetValue - newValue);
+
+                defaultSoulEssence = newValue;
                 UpdateStatsText();
 
-                if(defaultSoulEssence + 1f == (soulEssence * revives))
+                if (Mathf.Approximately(newValue, targetValue))
                 {
+                    defaultSoulEssence = targetValue;
                     pulseGameObject pulseSoulStat = bankedSoulEssenceText.gameObject.transform.parent.GetComponent<pulseGameObject>();
                     pulseSoulStat.Pulse();
+                    StartCoroutine(AddOverTime());
                 }
             }
-
-            else if (defaultBoxDestroyed < boxesDestroyed)
+            
+            else if(defaultBoxDestroyed < boxesDestroyed)
             {
-                defaultBoxDestroyed += 1f;
+                targetValue = boxesDestroyed; // Target value to reach
+
+                float currentTime = Time.time - startTime;
+                float progress = currentTime / totalTime; // Calculate the progress
+
+                // Calculate the new value based on the progress and target value
+                float newValue = Mathf.Lerp(0, targetValue, progress);
+
+                // Update the wait time based on the new value
+                calcSecondsPerItem = totalTime / (targetValue - newValue);
+
+                defaultBoxDestroyed = newValue;
                 UpdateStatsText();
 
-                if(defaultBoxDestroyed + 1f == boxesDestroyed)
+                if (Mathf.Approximately(newValue, targetValue))
                 {
+                    defaultBoxDestroyed = targetValue;
                     pulseGameObject pulseSoulStat = bankedBoxDestroyedText.gameObject.transform.parent.GetComponent<pulseGameObject>();
                     pulseSoulStat.Pulse();
+                    StartCoroutine(AddOverTime());
                 }
             }
-
-            else if (defaultGemItem < gemItem)
+            
+            else if(defaultGemItem < gemItem)
             {
-                defaultGemItem += 1f;
+                targetValue = gemItem; // Target value to reach
+
+                float currentTime = Time.time - startTime;
+                float progress = currentTime / totalTime; // Calculate the progress
+
+                // Calculate the new value based on the progress and target value
+                float newValue = Mathf.Lerp(0, targetValue, progress);
+
+                // Update the wait time based on the new value
+                calcSecondsPerItem = totalTime / (targetValue - newValue);
+
+                defaultGemItem = newValue;
                 UpdateStatsText();
 
-                if(defaultGemItem + 1f == gemItem)
+                if (Mathf.Approximately(newValue, targetValue))
                 {
+                    defaultGemItem = targetValue;
                     pulseGameObject pulseSoulStat = bankedGemItemsText.gameObject.transform.parent.GetComponent<pulseGameObject>();
+                    pulseSoulStat.Pulse();
+                    StartCoroutine(AddOverTime());
+                }
+            }
+            else if(defaultRevives < revives)
+            {
+                targetValue = revives; // Target value to reach
+
+                float currentTime = Time.time - startTime;
+                float progress = currentTime / totalTime; // Calculate the progress
+
+                // Calculate the new value based on the progress and target value
+                float newValue = Mathf.Lerp(0, targetValue, progress);
+
+                // Update the wait time based on the new value
+                calcSecondsPerItem = totalTime / (targetValue - newValue);
+
+                defaultRevives = newValue;
+                UpdateStatsText();
+
+                if (Mathf.Approximately(newValue, targetValue))
+                {
+                    defaultRevives = targetValue;
+                    defaultSoulEssence = defaultSoulEssence * targetValue;
+                    UpdateStatsText();
+                    pulseGameObject pulseSoulStat = bankedSoulEssenceText.gameObject.transform.parent.GetComponent<pulseGameObject>();
+                    pulseSoulStat.Pulse();
+                    
+                    pulseSoulStat = bankedRevivesText.gameObject.transform.parent.GetComponent<pulseGameObject>();
                     pulseSoulStat.Pulse();
                 }
             }
+            yield return new WaitForSeconds(calcSecondsPerItem);
         }
     }
-
-    // public void pretendTally()
-    // {
-    //     bankedSoulEssenceText.text = defaultSoulEssence.ToString();
-
-    //     if(defaultSoulEssence < ((soulEssence) * revives))
-    //     {
-    //         defaultSoulEssence += 0.001f;
-    //         bankedSoulEssenceText.text = Mathf.Round(Mathf.Floor(defaultSoulEssence)).ToString();
-    //         pretendTally();
-    //     }
-    // }
 }

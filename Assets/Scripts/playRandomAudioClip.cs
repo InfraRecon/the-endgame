@@ -7,6 +7,7 @@ public class playRandomAudioClip : MonoBehaviour
     public AudioClip[] clips;
     public float fadeTime = 1.0f;
     private AudioSource source;
+    private int lastClipIndex = -1;
 
     void Start()
     {
@@ -22,7 +23,14 @@ public class playRandomAudioClip : MonoBehaviour
             return;
         }
 
-        int clipIndex = Random.Range(0, clips.Length);
+        int clipIndex;
+        do
+        {
+            clipIndex = Random.Range(0, clips.Length);
+        } while (clipIndex == lastClipIndex);
+
+        lastClipIndex = clipIndex;
+
         StartCoroutine(FadeOut(fadeTime, () => {
             source.clip = clips[clipIndex];
             StartCoroutine(FadeIn(fadeTime));
@@ -66,5 +74,4 @@ public class playRandomAudioClip : MonoBehaviour
 
         source.volume = endVolume;
     }
-
 }
