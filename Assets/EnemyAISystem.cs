@@ -89,7 +89,7 @@ public class EnemyAISystem : MonoBehaviour
 
     private void Start()
     {
-        int randomSkin = Random.Range(0,enemySkins.Count);
+        int randomSkin = Random.Range(0, 2);  // Generates either 0 or 1
         enemySkins[randomSkin].SetActive(true);
 
         player = GameObject.Find("Ghost Player");

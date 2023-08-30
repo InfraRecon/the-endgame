@@ -97,7 +97,7 @@ public class gameCounters : MonoBehaviour
                     }
                     StartCoroutine(ExampleCoroutine());
                 }
-                thirdPersonCameraMovement.Jump(true);
+                thirdPersonCameraMovement.Jump(true,1f);
             }
         }
 

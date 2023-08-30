@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1153175238947874666}
   - component: {fileID: 1124749586941594856}
+  - component: {fileID: 5227908635092051760}
   - component: {fileID: 6642852330975357144}
   - component: {fileID: 6002942586100320933}
   - component: {fileID: 6983354187796167789}
@@ -44,6 +45,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966725490030149072}
   m_Mesh: {fileID: 8253519974018031461, guid: 509c1c0d23ce62f4093a85ecd029b40a, type: 3}
+--- !u!205 &5227908635092051760
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966725490030149072}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.14927423, y: 1.4458871, z: 0.3331573}
+  m_Size: 1
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.01
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6642852330975357144}
+  m_Enabled: 0
 --- !u!23 &6642852330975357144
 MeshRenderer:
   m_ObjectHideFlags: 0

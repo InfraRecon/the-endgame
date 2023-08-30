@@ -22,7 +22,8 @@ Texture2D:
   m_MipCount: 1
   m_IsReadable: 1
   m_IsPreProcessed: 0
-  m_IgnoreMasterTextureLimit: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0
@@ -73,6 +74,7 @@ MonoBehaviour:
     m_StyleName: Regular
     m_PointSize: 90
     m_Scale: 1
+    m_UnitsPerEM: 0
     m_LineHeight: 90
     m_AscentLine: 67.80762
     m_CapLine: 61
@@ -88,18 +90,72 @@ MonoBehaviour:
     m_StrikethroughOffset: 14.8
     m_StrikethroughThickness: 6.591797
     m_TabWidth: 23
-  m_GlyphTable: []
-  m_CharacterTable: []
+  m_GlyphTable:
+  - m_Index: 66
+    m_Metrics:
+      m_Width: 42.5
+      m_Height: 5.0625
+      m_HorizontalBearingX: 1.1875
+      m_HorizontalBearingY: -7.859375
+      m_HorizontalAdvance: 45
+    m_GlyphRect:
+      m_X: 78
+      m_Y: 10
+      m_Width: 43
+      m_Height: 6
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 171
+    m_Metrics:
+      m_Width: 48.375
+      m_Height: 10.765625
+      m_HorizontalBearingX: 4.578125
+      m_HorizontalBearingY: 10.0625
+      m_HorizontalAdvance: 59.671875
+    m_GlyphRect:
+      m_X: 10
+      m_Y: 10
+      m_Width: 49
+      m_Height: 12
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  m_CharacterTable:
+  - m_ElementType: 1
+    m_Unicode: 95
+    m_GlyphIndex: 66
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 8230
+    m_GlyphIndex: 171
+    m_Scale: 1
   m_AtlasTextures:
   - {fileID: -1150977897247131413}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 0
-  m_UsedGlyphRects: []
-  m_FreeGlyphRects:
+  m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
+    m_Width: 68
+    m_Height: 31
+  - m_X: 68
+    m_Y: 0
+    m_Width: 62
+    m_Height: 25
+  m_FreeGlyphRects:
+  - m_X: 0
+    m_Y: 31
     m_Width: 1023
+    m_Height: 992
+  - m_X: 68
+    m_Y: 25
+    m_Width: 955
+    m_Height: 998
+  - m_X: 130
+    m_Y: 0
+    m_Width: 893
     m_Height: 1023
   m_fontInfo:
     Name: 
@@ -189,6 +245,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: MISTRAL Atlas Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -197,6 +255,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:

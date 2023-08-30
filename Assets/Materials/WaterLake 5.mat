@@ -117,8 +117,8 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _EnvironmentReflections: 1
-    - _Foam_Amount: 3
-    - _Foam_Scale: 100
+    - _Foam_Amount: 0.1
+    - _Foam_Scale: 300
     - _Foam_Speed: 0.1
     - _Foam_Strength: 1
     - _GlossMapScale: 0
@@ -143,7 +143,7 @@ Material:
     - _Water_Depth_Fade_Distance: 25
     - _Wave_Height: 2
     - _Wave_Scale: 4
-    - _Wave_Speed: 0.025
+    - _Wave_Speed: 0.0001
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0

@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 4807631024786829039}
   - component: {fileID: 4655944813357062480}
   - component: {fileID: 5186476189738531745}
-  - component: {fileID: 6302019892857961611}
-  m_Layer: 22
+  m_Layer: 0
   m_Name: Cactus_LOD4__uenmbjvga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853692326294078229}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -84,28 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6302019892857961611
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853692326294078229}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8612681442647467152, guid: a16989568d76a6447b5e4485f080c50a, type: 3}
 --- !u!1 &7235334582559106871
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +95,7 @@ GameObject:
   - component: {fileID: 4244327903943502433}
   - component: {fileID: 3780407751073816821}
   - component: {fileID: 2847210188627454592}
+  - component: {fileID: 7425485385614258452}
   m_Layer: 20
   m_Name: Cactus_uenmbjvga 1
   m_TagString: Untagged
@@ -197,3 +175,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1586761317981468719, guid: 57d9f571b4b42db4398f332f965a477a, type: 3}
+--- !u!205 &7425485385614258452
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235334582559106871}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.14927423, y: 1.4458871, z: 0.3331573}
+  m_Size: 1
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.06
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5186476189738531745}
+  m_Enabled: 1

@@ -16,6 +16,7 @@ public class spawnBoxes : MonoBehaviour
 
     void Start()
     {
+        numberOfPrefabsToInstantiate = Random.Range(numberOfPrefabsToInstantiate/2,numberOfPrefabsToInstantiate);
         // Instantiate the prefabs randomly within the designated space
         for (int i = 0; i < numberOfPrefabsToInstantiate; i++)
         {
@@ -25,7 +26,7 @@ public class spawnBoxes : MonoBehaviour
             float z = Random.Range(minSpawnPositionZ, maxSpawnPositionZ);
             Vector3 randomSpawnPosition = new Vector3(x, y, z);
 
-            int prefabNum = Random.Range(0, prefabToInstantiate.Length);
+            int prefabNum = Random.Range(0, prefabToInstantiate.Length-1);
 
             // Instantiate the prefab at the random position
             boxObject = Instantiate(prefabToInstantiate[prefabNum], 

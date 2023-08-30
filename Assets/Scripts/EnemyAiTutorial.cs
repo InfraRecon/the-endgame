@@ -236,7 +236,7 @@ public class EnemyAiTutorial : MonoBehaviour
                     if (!isMovingBack)
                     {
                         isMovingBack = true;
-                        thirdPersonCameraMovement.Jump(true);
+                        thirdPersonCameraMovement.Jump(true,1f);
                     }
 
                     

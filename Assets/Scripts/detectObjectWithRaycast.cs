@@ -180,6 +180,8 @@ public class detectObjectWithRaycast : MonoBehaviour
 
     public Animator ghostAnimator;
 
+    public bool triggerAttack = false;
+
     private void Start()
     {
         // reticle = Instantiate(reticle);
@@ -191,7 +193,7 @@ public class detectObjectWithRaycast : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange,whatIsEnemy);
         foreach (var hitCollider in hitColliders)
         {
-            if(Input.GetKeyDown(KeyCode.C) && hitCollider.gameObject.layer == 8 || ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f)
+            if(Input.GetKeyDown(KeyCode.C) && hitCollider.gameObject.layer == 8 || ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f || triggerAttack)
             {
                 Instantiate(soul, hitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
                 Instantiate(explosionBoxOnDetection, hitCollider.gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
@@ -202,7 +204,7 @@ public class detectObjectWithRaycast : MonoBehaviour
                 Destroy(hitCollider.gameObject);
             }
 
-            if(Input.GetKeyDown(KeyCode.C) && hitCollider.gameObject.layer == 20 || ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f)
+            if(Input.GetKeyDown(KeyCode.C) && hitCollider.gameObject.layer == 20 || ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f || triggerAttack)
             {
                 //Invoke("explosionType", 5); 
                 Instantiate(explosionskullBoxOnDetection, hitCollider.GetComponent<Collider>().gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
@@ -214,7 +216,7 @@ public class detectObjectWithRaycast : MonoBehaviour
                 Destroy(hitCollider.GetComponent<Collider>().gameObject);
             }
 
-            if(Input.GetKeyDown(KeyCode.C) && hitCollider.gameObject.layer == 14 || ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f)
+            if(Input.GetKeyDown(KeyCode.C) && hitCollider.gameObject.layer == 14 || ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f || triggerAttack)
             {
                 transform.parent.LookAt(hitCollider.gameObject.transform);
                 Instantiate(soul, hitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
@@ -253,7 +255,7 @@ public class detectObjectWithRaycast : MonoBehaviour
         {
             if(jumpHitCollider.GetComponent<Collider>().gameObject.layer == 8)
             {
-                thirdPersonCameraMovement.Jump(true);
+                thirdPersonCameraMovement.Jump(true,1f);
                 Instantiate(explosionBoxOnDetection, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
                 Instantiate(soul, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
                 counters.updateBoxesDestroyed(+1);
@@ -265,7 +267,7 @@ public class detectObjectWithRaycast : MonoBehaviour
 
             if(jumpHitCollider.GetComponent<Collider>().gameObject.layer == 20)
             {
-                thirdPersonCameraMovement.Jump(true);
+                thirdPersonCameraMovement.Jump(true,1f);
                 //Invoke("explosionType", 5); 
                 Instantiate(explosionskullBoxOnDetection, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
                 //Instantiate(soul, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
@@ -274,6 +276,11 @@ public class detectObjectWithRaycast : MonoBehaviour
                 boxAudioSource.pitch = UnityEngine.Random.Range(0.5f,1.1f);
                 boxAudioSource.Play();
                 Destroy(jumpHitCollider.GetComponent<Collider>().gameObject);
+            }
+
+            if(jumpHitCollider.GetComponent<Collider>().gameObject.layer == 26)
+            {
+                thirdPersonCameraMovement.Jump(true,3f);
             }
 
             if(jumpHitCollider.GetComponent<Collider>().gameObject.layer == 12)
@@ -286,7 +293,7 @@ public class detectObjectWithRaycast : MonoBehaviour
                 Instantiate(soul, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
                 Instantiate(explosionBoxOnDetection, jumpHitCollider.gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
                 EnemyAiTutorial enemy = jumpHitCollider.gameObject.GetComponent<EnemyAiTutorial>();
-                thirdPersonCameraMovement.Jump(true);
+                thirdPersonCameraMovement.Jump(true,1f);
                 Instantiate(soul, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
                 Instantiate(explosionEnemyOnDetection, jumpHitCollider.gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
                 try
@@ -308,6 +315,18 @@ public class detectObjectWithRaycast : MonoBehaviour
         }
     }
 
+    public void triggerAttackRange(bool isAttacking)
+    {
+        if(isAttacking)
+        {
+            attackRange = 7.5f;
+        }
+        else
+        {
+            attackRange = 5f;
+        }
+        triggerAttack = isAttacking;
+    }
     // void explosionType()
     // {
     //      Instantiate(explosionskullBoxOnDetection, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,explosionBoxOnDetection.transform.rotation);

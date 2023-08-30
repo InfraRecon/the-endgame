@@ -115,10 +115,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2090702155892913654}
-  - component: {fileID: 54304617647626347}
   - component: {fileID: 2943599938074759422}
   - component: {fileID: 6946996056729559471}
   - component: {fileID: 7550748222209224024}
+  - component: {fileID: 7425348654439205471}
   m_Layer: 6
   m_Name: Stone Pillar_sehwz 1
   m_TagString: Untagged
@@ -142,28 +142,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &54304617647626347
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7354363392926061060}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6161501530524513054, guid: 2805476cb720d004498932fc4000cb43, type: 3}
 --- !u!114 &2943599938074759422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +193,22 @@ MonoBehaviour:
   zRot: 1
   rotationMin: -5
   rotationMax: 5
+--- !u!205 &7425348654439205471
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7354363392926061060}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.14927423, y: 1.4458871, z: 0.3331573}
+  m_Size: 1
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.06
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5338538893754797319}
+  m_Enabled: 1

@@ -22,4 +22,9 @@ public class ApplicationSettings : MonoBehaviour
     {
         Application.targetFrameRate = fps;
     }
+
+    public void TaskManagerTheApplication()
+    {
+        Application.Quit();
+    }
 }

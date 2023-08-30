@@ -4,74 +4,17 @@ using UnityEngine;
 
 public class playRandomAudioClip : MonoBehaviour
 {
-    public AudioClip[] clips;
-    public float fadeTime = 1.0f;
-    private AudioSource source;
-    private int lastClipIndex = -1;
+    public float AudioVolume = 0.5f;
 
-    void Start()
+    public AudioSource MasterAudioSource;
+
+    public void ChangeAudioVolume()
     {
-        source = GetComponent<AudioSource>();
-        PlayRandomClip();
+        AudioVolume = MasterAudioSource.volume;
     }
 
-    void PlayRandomClip()
+    public float GetAudioVolume()
     {
-        if (clips.Length == 0)
-        {
-            Debug.LogError("No audio clips found");
-            return;
-        }
-
-        int clipIndex;
-        do
-        {
-            clipIndex = Random.Range(0, clips.Length);
-        } while (clipIndex == lastClipIndex);
-
-        lastClipIndex = clipIndex;
-
-        StartCoroutine(FadeOut(fadeTime, () => {
-            source.clip = clips[clipIndex];
-            StartCoroutine(FadeIn(fadeTime));
-            source.Play();
-        }));
-
-        // Invoke the PlayRandomClip method after the new audio clip's duration has elapsed
-        Invoke("PlayRandomClip", source.clip.length);
-    }
-
-    IEnumerator FadeOut(float time, System.Action onComplete)
-    {
-        float startVolume = source.volume;
-
-        while (source.volume > 0)
-        {
-            source.volume -= startVolume * Time.deltaTime / time;
-            yield return null;
-        }
-
-        source.Stop();
-        source.volume = startVolume;
-
-        if (onComplete != null)
-        {
-            onComplete();
-        }
-    }
-
-    IEnumerator FadeIn(float time)
-    {
-        float endVolume = source.volume;
-        source.volume = 0;
-        source.Play();
-
-        while (source.volume < endVolume)
-        {
-            source.volume += endVolume * Time.deltaTime / time;
-            yield return null;
-        }
-
-        source.volume = endVolume;
+        return AudioVolume;
     }
 }

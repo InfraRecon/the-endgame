@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: STENCIL Atlas Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -17,6 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -131,6 +134,7 @@ MonoBehaviour:
     m_StyleName: Regular
     m_PointSize: 90
     m_Scale: 1
+    m_UnitsPerEM: 0
     m_LineHeight: 90
     m_AscentLine: 65.478516
     m_CapLine: 60
@@ -146,18 +150,72 @@ MonoBehaviour:
     m_StrikethroughOffset: 24
     m_StrikethroughThickness: 5.5371094
     m_TabWidth: 23
-  m_GlyphTable: []
-  m_CharacterTable: []
+  m_GlyphTable:
+  - m_Index: 53
+    m_Metrics:
+      m_Width: 75.53125
+      m_Height: 17.09375
+      m_HorizontalBearingX: 5.984375
+      m_HorizontalBearingY: 15.90625
+      m_HorizontalAdvance: 87.5
+    m_GlyphRect:
+      m_X: 10
+      m_Y: 10
+      m_Width: 77
+      m_Height: 18
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 136
+    m_Metrics:
+      m_Width: 43.984375
+      m_Height: 7.03125
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: -8.5625
+      m_HorizontalAdvance: 43.984375
+    m_GlyphRect:
+      m_X: 106
+      m_Y: 10
+      m_Width: 44
+      m_Height: 8
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  m_CharacterTable:
+  - m_ElementType: 1
+    m_Unicode: 95
+    m_GlyphIndex: 136
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 8230
+    m_GlyphIndex: 53
+    m_Scale: 1
   m_AtlasTextures:
   - {fileID: 1992957451835502661}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 0
-  m_UsedGlyphRects: []
-  m_FreeGlyphRects:
+  m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
+    m_Width: 96
+    m_Height: 37
+  - m_X: 96
+    m_Y: 0
+    m_Width: 63
+    m_Height: 27
+  m_FreeGlyphRects:
+  - m_X: 0
+    m_Y: 37
     m_Width: 1023
+    m_Height: 986
+  - m_X: 96
+    m_Y: 27
+    m_Width: 927
+    m_Height: 996
+  - m_X: 159
+    m_Y: 0
+    m_Width: 864
     m_Height: 1023
   m_fontInfo:
     Name: 
@@ -260,7 +318,8 @@ Texture2D:
   m_MipCount: 1
   m_IsReadable: 1
   m_IsPreProcessed: 0
-  m_IgnoreMasterTextureLimit: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: 0
   m_VTOnly: 0

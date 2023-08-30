@@ -5,8 +5,8 @@ using UnityEngine;
 public class respawnPlayerFromBoundary : MonoBehaviour
 {
     public ResetPlayer reset;
-    public ResetPlayer resetToDesert;
-    public loadingScreenFader loading;
+    private ResetPlayer resetToDesert;
+    private loadingScreenFader loading;
     private bool insideTrigger = false;
 
     public bool automaticReset = false;
@@ -14,7 +14,10 @@ public class respawnPlayerFromBoundary : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        reset = GameObject.Find("ResetPosition").GetComponent<ResetPlayer>();
+        if(reset == null)
+        {
+            reset = GameObject.Find("ResetPosition").GetComponent<ResetPlayer>();
+        }
         resetToDesert = GameObject.Find("DesertPosition").GetComponent<ResetPlayer>();
         loading = GameObject.Find("Loading Plane").GetComponent<loadingScreenFader>();
     }

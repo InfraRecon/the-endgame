@@ -15,6 +15,7 @@ public class pressAnyKeyToStart : MonoBehaviour
     public bool menuScreenActive = false;
 
     public GameObject levelSelectScreen;
+    public GameObject levelSelectScreenIcon;
     public GameObject loadingScreen;
     public GameObject deathScreen;
     public GameObject statScreen;
@@ -49,16 +50,27 @@ public class pressAnyKeyToStart : MonoBehaviour
         !deathScreen.activeSelf &&
         !statScreen.activeSelf)
         {
-            if(!menuScreenActive)
-            {
-                toggleMenuScreen(true);
-                menuScreenActive = true;
-            }
-            else if(menuScreenActive)
-            {
-                toggleMenuScreen(false);
-                menuScreenActive = false;
-            }
+            toggleMenuScreen(true);
+            menuScreenActive = true;
+            // if(!menuScreenActive)
+            // {
+            //     toggleMenuScreen(true);
+            //     menuScreenActive = true;
+            // }
+            // else if(menuScreenActive)
+            // {
+            //     toggleMenuScreen(false);
+            //     menuScreenActive = false;
+            // }
+        }
+
+        if(!levelSelectScreen.activeSelf)
+        {
+            levelSelectScreenIcon.SetActive(true);
+        }
+        else
+        {
+            levelSelectScreenIcon.SetActive(false);
         }
     }
 

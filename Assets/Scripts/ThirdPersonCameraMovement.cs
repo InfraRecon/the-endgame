@@ -89,12 +89,17 @@ public class ThirdPersonCameraMovement : MonoBehaviour
     private float timeRemaining = 1;
     public float startTimeRemaining = 1;
     public bool IsAttackingInAir = false;
+
+    private detectObjectWithRaycast attackTrigger;
+
+    public int JumpCount = 0;
     
     void Start()
     {
         currentDashMeter = dashMeterCap;
         timeRemaining = startTimeRemaining;
         ghostAnimator.SetFloat("IdleBlend",0);
+        attackTrigger = groundCheck.gameObject.GetComponent<detectObjectWithRaycast>();
     }
 
     void Update()
@@ -277,7 +282,8 @@ public class ThirdPersonCameraMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.X))
         {
-            Jump(false);
+            Jump(false,1f);
+            DoubleJump();
         }
 
         if(keepSpeed)
@@ -366,20 +372,23 @@ public class ThirdPersonCameraMovement : MonoBehaviour
         transform.GetChild(0).gameObject.transform.localPosition.z);
     }
 
-    public void Jump(bool ignoreGround)
+    public void Jump(bool ignoreGround, float jheight)
     {            
         if(isGrounded || ignoreGround)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            velocity.y = Mathf.Sqrt((jumpHeight * jheight) * -2 * gravity);
             ghostAnimator.SetFloat("JumpBraceBlend", 0.25f);
             animationStater("IsFalling");
-
-            if(isGrounded)
+            JumpCount = 1;
+            if(isGrounded || JumpCount == 1)
             {
                 canDoubleJump = true;
             }
         }
-        
+    }
+
+    public void DoubleJump()
+    {
         if(!isGrounded && canDoubleJump)
         {
             velocity.y = Mathf.Sqrt(jumpHeight*1.5f * -2 * gravity);
@@ -387,6 +396,7 @@ public class ThirdPersonCameraMovement : MonoBehaviour
             animationStater("IsFalling");
             AudioManager.JumpAudio();
             canDoubleJump = false;    
+            JumpCount = 0;
         }   
 
         if(!isGrounded)
@@ -404,12 +414,15 @@ public class ThirdPersonCameraMovement : MonoBehaviour
             sliding = IsSliding;
             keepSpeed = true;
             slidingEffect.SetActive(true);
+
+            attackTrigger.triggerAttackRange(true); 
         }
         else if(IsSliding == false)
         {
             ghostAnimator.SetBool("IsDashing",false);
             sliding = false;
             slidingEffect.SetActive(false);
+            attackTrigger.triggerAttackRange(false); 
         }
     }
 

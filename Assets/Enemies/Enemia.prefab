@@ -292,7 +292,7 @@ MonoBehaviour:
   groundDistance: 1
   health: 1
   BlobExplosion: {fileID: 1845955007268882, guid: d1137c4d374fad64bbb73ba895f45865, type: 3}
-  timeBetweenAttacks: 5
+  timeBetweenAttacks: 1
   sightRange: 20
   tauntAttackRange: 1
   attackRange: 10
@@ -2981,7 +2981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1448880712154102691, guid: a701f9f4cef80f4438386cc15835c393, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
