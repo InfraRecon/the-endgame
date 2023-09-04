@@ -5795,7 +5795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287087943070902408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.4, y: -25, z: 188.4}
+  m_LocalPosition: {x: 43.4, y: -25, z: 188.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8074,7 +8074,6 @@ GameObject:
   - component: {fileID: 3273069846047487305}
   - component: {fileID: 1770637345514299515}
   - component: {fileID: 1942701048280480741}
-  - component: {fileID: 8294994504054584301}
   m_Layer: 0
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -8164,7 +8163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mud Slide of Vel
+  m_text: Chasm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72fd416a5ac5edb4ca5d59c385c54181, type: 2}
   m_sharedMaterial: {fileID: 3762169388220195984, guid: 72fd416a5ac5edb4ca5d59c385c54181, type: 2}
@@ -8173,8 +8172,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278197247
-  m_fontColor: {r: 1, g: 0.10714628, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8236,23 +8235,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1770637345514299515}
   m_maskType: 0
---- !u!114 &8294994504054584301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4955297626582236711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 242c78aa31e4212479859897ebbbe693, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  degreesPerSecond: 15
-  amplitude: 0.01
-  frequency: 1
-  randomAmplitude: 0
-  posOffsetParent: {fileID: 3273069846047487305}
 --- !u!1 &5004026578492139895
 GameObject:
   m_ObjectHideFlags: 0
@@ -8972,7 +8954,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6108352282493126811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.65, y: 0.74, z: -0.089999996}
+  m_LocalPosition: {x: -6.61, y: 6.89, z: 4.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14890,15 +14872,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5641750175407308290, guid: 681e0445c974cb645ac23adb0cec2998, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.4
+      value: -33.1
       objectReference: {fileID: 0}
     - target: {fileID: 5641750175407308290, guid: 681e0445c974cb645ac23adb0cec2998, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.7
+      value: -12.9939995
       objectReference: {fileID: 0}
     - target: {fileID: 5641750175407308290, guid: 681e0445c974cb645ac23adb0cec2998, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.29
+      value: -0.26500002
       objectReference: {fileID: 0}
     - target: {fileID: 5641750175407308290, guid: 681e0445c974cb645ac23adb0cec2998, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15765,6 +15747,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4763116190553244544, guid: 681e0445c974cb645ac23adb0cec2998, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763116190553244544, guid: 681e0445c974cb645ac23adb0cec2998, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 5283334090457012538, guid: 681e0445c974cb645ac23adb0cec2998, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -15787,7 +15777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5641750175407308290, guid: 681e0445c974cb645ac23adb0cec2998, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.3
+      value: 33.7
       objectReference: {fileID: 0}
     - target: {fileID: 5641750175407308290, guid: 681e0445c974cb645ac23adb0cec2998, type: 3}
       propertyPath: m_LocalPosition.y

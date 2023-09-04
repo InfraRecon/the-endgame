@@ -74,6 +74,28 @@ public class gameCounters : MonoBehaviour
         boxesDestroyedText.text = boxesDestroyed.ToString();
     }
 
+    ////
+
+    public void updateBankedSoulEssence(int change)
+    {
+        if(bankedSoulEssence > 0)
+        {
+            bankedSoulEssence += change;
+            bankedSoulEssenceText.text = bankedSoulEssence.ToString();
+        }
+    }
+
+    public void updateBankedGemItem(int change)
+    {
+        if(bankedGemItems > 0)
+        {
+            bankedGemItems += change;
+            bankedGemItemsText.text = bankedGemItems.ToString();
+        }
+    }
+
+    /////
+
     public void updateRevives(int change)
     {        
         if(revives > 0)
@@ -172,6 +194,26 @@ public class gameCounters : MonoBehaviour
     }
 
     public int getRevives()
+    {
+        return revives;
+    }
+/////////
+    public int getSoulBankedEssence()
+    {
+        return bankedSoulEssence;
+    }
+
+    public int getGemBankedItem()
+    {
+        return bankedGemItems;
+    }
+
+    public int getBoxesBankedDestroyed()
+    {
+        return bankedBoxDestroyed;
+    }
+
+    public int getBankedRevives()
     {
         return revives;
     }

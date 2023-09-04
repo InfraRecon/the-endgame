@@ -48,6 +48,7 @@ MonoBehaviour:
   - {fileID: 6414308977850863728, guid: 3f342b0fd737f2449ad541100891a925, type: 3}
   - {fileID: 8939182257065831928, guid: 2295e387be2024047b9fb4a2e0db5185, type: 3}
   numberOfPrefabsToInstantiate: 1
+  lockSpawn: 1
   minSpawnPositionX: -0.2
   maxSpawnPositionX: 0.2
   minSpawnPositionY: 0

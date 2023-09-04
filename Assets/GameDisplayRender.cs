@@ -21,7 +21,7 @@ public class GameDisplayRender : MonoBehaviour
         }
 
         // Update the Render Texture resolution
-        UpdateRenderTextureResolutionToSD();
+        displayMaterial.mainTexture = targetRenderTexture;
     }
 
     public void UpdateRenderTextureResolutionToHD()

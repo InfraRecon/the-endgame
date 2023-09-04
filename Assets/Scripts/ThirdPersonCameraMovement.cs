@@ -223,12 +223,15 @@ public class ThirdPersonCameraMovement : MonoBehaviour
             {
                 ghostAnimator.SetFloat("BlockBlend",speed);
             }
+
+            dashEffect.SetActive(true);
         }
         else
         {
             speed = 0;
             ghostAnimator.SetFloat("BlockBlend",5f);
             ghostAnimator.SetBool("IsMoving", false);
+            dashEffect.SetActive(false);
         }
 
         ////Controls
