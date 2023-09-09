@@ -26,18 +26,25 @@ public class buttonLevelTrigger : MonoBehaviour
         if(playerOnTrigger)
         {
             uiInteract.triggerUI();
-            if(Input.GetKeyDown(KeyCode.C) && !canvasLevelSelectScreen.activeSelf)
+            if(Input.GetKeyDown(KeyCode.C) && !canvasLevelSelectScreen.activeSelf ||
+            Input.GetKeyDown(KeyCode.JoystickButton3) && !canvasLevelSelectScreen.activeSelf)
             {
                 canvasLevelSelectScreen.SetActive(true);
             }
-            else if (Input.GetKeyDown(KeyCode.C) && canvasLevelSelectScreen.activeSelf)
+            else if (Input.GetKeyDown(KeyCode.C) && canvasLevelSelectScreen.activeSelf ||
+            Input.GetKeyDown(KeyCode.JoystickButton3) && canvasLevelSelectScreen.activeSelf)
             {
                 canvasLevelSelectScreen.SetActive(false);
             }
 
             if(canvasLevelSelectScreen.activeSelf)
             {
-                Player.transform.position = target.position;
+                Player.SetActive(false);
+                //Player.transform.position = target.position;
+            }
+            else
+            {
+                Player.SetActive(true);
             }
         }
     }

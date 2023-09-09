@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 2843600487715643475}
   - component: {fileID: 2604279400325633224}
   - component: {fileID: 479966226272133859}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1230,6 +1230,7 @@ GameObject:
   - component: {fileID: 4087886888087724485}
   - component: {fileID: 2662884318645764893}
   - component: {fileID: 6429572969801036215}
+  - component: {fileID: 8926403491430991153}
   m_Layer: 0
   m_Name: Icosphere.001
   m_TagString: Untagged
@@ -1302,6 +1303,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8926403491430991153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786983258060303426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91932c97c9dc33458796c6b040f811d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseDuration: 1
+  maxScaleMultiplier: 1.1
+  autoPulse: 0
 --- !u!1 &1808693459886962388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6889080854767765988}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1676,6 +1692,7 @@ GameObject:
   - component: {fileID: 5475227986499909470}
   - component: {fileID: 4174217652973596518}
   - component: {fileID: 4989217688749141213}
+  - component: {fileID: 3683479321534134966}
   m_Layer: 0
   m_Name: Icosphere
   m_TagString: Untagged
@@ -1748,6 +1765,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3683479321534134966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420272398696673485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91932c97c9dc33458796c6b040f811d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseDuration: 1
+  maxScaleMultiplier: 1.1
+  autoPulse: 0
 --- !u!1 &3115573225418527198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,7 +2577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3831876654913925411}
   - component: {fileID: 5722174584674215161}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2560,8 +2592,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6202256588957673122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.159, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.249, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2226598416919614020}

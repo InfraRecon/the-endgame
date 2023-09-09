@@ -12,10 +12,12 @@ public class CostumeManager : MonoBehaviour
     public GameObject[] etherCostumeAssets; // The prefab to instantiate
     public GameObject[] stacyCostumeAssets; // The prefab to instantiate
     public GameObject[] percyCostumeAssets; // The prefab to instantiate
+    public GameObject[] sunCostumeAssets; // The prefab to instantiate
 
     public bool etherOriginalCostume = true;
     public bool etherModernCostume = false;
     public bool percyKinCostume = false;
+    public bool sunMonkCostume = false;
 
     public int soulReqInitial = 100;
     public int gemReqInitial = 25;
@@ -40,14 +42,14 @@ public class CostumeManager : MonoBehaviour
 
     void Start()
     {
-        costumeFilterArray = new GameObject[][] { etherCostumeAssets, stacyCostumeAssets, percyCostumeAssets };
-        costumeActiveArray = new bool[] { etherOriginalCostume, etherModernCostume, percyKinCostume };
+        costumeFilterArray = new GameObject[][] { etherCostumeAssets, stacyCostumeAssets, percyCostumeAssets, sunCostumeAssets };
+        costumeActiveArray = new bool[] { etherOriginalCostume, etherModernCostume, percyKinCostume, sunMonkCostume };
         counter = GetComponent<gameCounters>();
     }
 
     public void changeCostume(int costumeNumber)
     {
-        costumeActiveArray = new bool[] { etherOriginalCostume, etherModernCostume, percyKinCostume };
+        costumeActiveArray = new bool[] { etherOriginalCostume, etherModernCostume, percyKinCostume, sunMonkCostume };
         currentSelectedCostume = costumeNumber;
         if(costumeActiveArray[costumeNumber] == false)
         {
@@ -94,6 +96,7 @@ public class CostumeManager : MonoBehaviour
 
     public void tryUnlockLockedCostume()
     {
+        getBankedItems();
         if(currentSelectedCostume == 1)
         {
             unlockEtherModernCostume();
@@ -101,6 +104,10 @@ public class CostumeManager : MonoBehaviour
         else if(currentSelectedCostume == 2)
         {
             unlockPercyKinCostume();
+        }
+        else if(currentSelectedCostume == 3)
+        {
+            unlockSunMonkCostume();
         }
         changeCostume(currentSelectedCostume);
 
@@ -125,6 +132,17 @@ public class CostumeManager : MonoBehaviour
         if(checkCounters == true)
         {
             percyKinCostume = true;
+            counter.updateBankedSoulEssence(-soulReq);
+            counter.updateBankedGemItem(-gemReq);
+        }
+    }
+
+    public void unlockSunMonkCostume()
+    {
+        bool checkCounters = unlockRequirement(souls, soulReq, gems, gemReq);
+        if(checkCounters == true)
+        {
+            sunMonkCostume = true;
             counter.updateBankedSoulEssence(-soulReq);
             counter.updateBankedGemItem(-gemReq);
         }

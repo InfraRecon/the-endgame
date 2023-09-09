@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5527663737574176639}
-  m_LocalRotation: {x: -0, y: 0.9999947, z: -0, w: -0.0032661993}
+  m_LocalRotation: {x: 0, y: -0.99999475, z: 0, w: 0.0032637292}
   m_LocalPosition: {x: 0, y: 8.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -179.626, z: 0}
 --- !u!199 &6629069122653591673
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -54,7 +54,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a837dcda2e7c12f4293e32f95bc4abb7, type: 2}
+  - {fileID: 2100000, guid: e09c92a2051af0d4cbb3ea763bad6480, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -293,8 +293,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
-      minColor: {r: 1, g: 1, b: 1, a: 1}
+      minMaxState: 2
+      minColor: {r: 1, g: 1, b: 1, a: 0.5019608}
       maxColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5019608}
       maxGradient:
         serializedVersion: 2
@@ -360,7 +360,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 100
-      minScalar: 50
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -676,7 +676,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 10000
+    maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -744,7 +744,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 90, y: 0, z: 0}
-    m_Scale: {x: 500, y: 500, z: 2}
+    m_Scale: {x: 100, y: 100, z: 2}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -942,7 +942,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2000
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2

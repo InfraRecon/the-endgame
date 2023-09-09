@@ -13,6 +13,7 @@ public class ThirdPersonCameraMovement : MonoBehaviour
     public float RunningSpeed;
     public float WalkingSpeed;
     public float gravity = -9.81f;
+    private float originalGravity = -9.81f * 10;
     public float jumpHeight = 3;
     Vector3 velocity;
     public bool isGrounded;
@@ -45,6 +46,7 @@ public class ThirdPersonCameraMovement : MonoBehaviour
     public float currentDashMeter;
     public float dashConsumption;
     public GameObject dashEffect;
+    public bool IsDashing = false;
 
     public bool canSlam = false;
     public GameObject slamEffect;
@@ -235,7 +237,6 @@ public class ThirdPersonCameraMovement : MonoBehaviour
         }
 
         ////Controls
-
         if(Input.GetKey(KeyCode.UpArrow) || 
            Input.GetKey(KeyCode.DownArrow) || 
            Input.GetKey(KeyCode.LeftArrow) || 
@@ -279,11 +280,19 @@ public class ThirdPersonCameraMovement : MonoBehaviour
         }
         else
         {
-            move.x = 0;
-            move.y = 0;
+            float horizontalInput = Input.GetAxis ("Horizontal");
+            float verticalInput = Input.GetAxis ("Vertical");
+            move.x = horizontalInput;
+            move.y = verticalInput;
         }
 
-        if(Input.GetKeyDown(KeyCode.X))
+        // float horizontalInput = Input.GetAxis ("Horizontal");
+        // float verticalInput = Input.GetAxis ("Vertical");
+        // move.x = horizontalInput;
+        // move.y = verticalInput;
+
+
+        if(Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.JoystickButton1))
         {
             Jump(false,1f);
             DoubleJump();
@@ -315,6 +324,7 @@ public class ThirdPersonCameraMovement : MonoBehaviour
         // }
 
         //gravity
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
@@ -333,12 +343,24 @@ public class ThirdPersonCameraMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             // Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * transform.forward;
-
-            controller.Move(transform.forward * speed * Time.deltaTime);
+            
+            if(Input.GetKeyDown(KeyCode.Z) && !IsDashing || Input.GetKeyDown(KeyCode.JoystickButton2) && !IsDashing)
+            {
+                Dashing();
+            }
+            else
+            {
+                controller.Move(transform.forward * speed * Time.deltaTime);
+            }
         }
         else
         {
             speed = Mathf.SmoothDamp(speed,direction.magnitude * RunningSpeed, ref negyVelocity, negSmoothTime);
+        }
+
+        if(IsDashing)
+        {
+            transform.Translate(Vector3.forward * RunningSpeed * Time.deltaTime);
         }
 
         // if(enemyList.Count <= 0)
@@ -408,11 +430,36 @@ public class ThirdPersonCameraMovement : MonoBehaviour
         }
     }
 
+    IEnumerator ChangeGravityForDuration(float duration)
+    {
+        while(IsDashing)
+        {
+            // controller.Move(transform.forward * (RunningSpeed*2) * Time.deltaTime);
+            yield return new WaitForSeconds(duration);
+            IsDashing = false;
+            gravity = -9.81f * 10;
+
+            ghostAnimator.SetBool("IsDashing",false);
+        }
+    }
+
+    public void Dashing()
+    {
+        if(IsDashing == false)
+        {
+            IsDashing = true;
+            gravity = -9.81f;
+            ghostAnimator.SetFloat("DashBlend",0.8f);
+            ghostAnimator.SetBool("IsDashing",true);
+            StartCoroutine(ChangeGravityForDuration(0.25f)); // Change gravity for 1 second
+        }
+    }
+
     public void Sliding(bool IsSliding)
     {
         if(IsSliding == true)
         {
-            ghostAnimator.SetFloat("DashBlend",0.8f);
+            ghostAnimator.SetFloat("DashBlend",0f);
             ghostAnimator.SetBool("IsDashing",true);
             sliding = IsSliding;
             keepSpeed = true;

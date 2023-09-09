@@ -13,7 +13,7 @@ public class instantiateExtraBox : MonoBehaviour
     {
         randomBoxNum = Random.Range(0,boxPrefabs.Length);
 
-        int intantiateBoxNum = Random.Range(-1,2);
+        int intantiateBoxNum = Random.Range(0,2);
         if(intantiateBoxNum == 1)
         {
             randomSpawnExtra = true;

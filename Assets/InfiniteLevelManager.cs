@@ -14,6 +14,7 @@ public class InfiniteLevelManager : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.Find("Ghost Player").transform;
         for(int i = 0; i < 8; i++)
         {
             checkBoxCenter.Add(transform.GetChild(i).transform);
@@ -32,7 +33,7 @@ public class InfiniteLevelManager : MonoBehaviour
                 dist = Vector3.Distance(player.position, checkBoxCenter[i].position);                
                 if(dist < checkDist)
                 {
-                    GameObject ground = Instantiate(planePrefab, checkBoxCenter[i].position, Quaternion.identity);
+                    GameObject ground = Instantiate(planePrefab, checkBoxCenter[i].position, Quaternion.identity, transform.parent.transform);
                 }
             }
         }

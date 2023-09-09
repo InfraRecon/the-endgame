@@ -163,6 +163,8 @@ public class detectObjectWithRaycast : MonoBehaviour
 
     public GameObject explosionBoxOnDetection;
     public GameObject explosionskullBoxOnDetection;
+    public GameObject explosionskullBoxOnDetectionImeddiate;
+    public GameObject explosionskull;
     public GameObject explosionEnemyOnDetection;
     public AudioSource boxAudioSource;
     public GameObject soul;
@@ -191,46 +193,54 @@ public class detectObjectWithRaycast : MonoBehaviour
     {
         //Attacking Stuff
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange,whatIsEnemy);
-        foreach (var hitCollider in hitColliders)
+        foreach (var newHitCollider in hitColliders)
         {
-            if(Input.GetKeyDown(KeyCode.C) && hitCollider.gameObject.layer == 8 || ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f || triggerAttack)
+           //&& ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f ;
+            GameObject HitCollider = newHitCollider.GetComponent<Collider>().gameObject;
+
+            if(Input.GetKeyDown(KeyCode.C) && HitCollider.layer == 8 ||  
+               Input.GetKeyDown(KeyCode.JoystickButton0) && HitCollider.layer == 8 || 
+               triggerAttack && HitCollider.layer == 8)
             {
-                Instantiate(soul, hitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
-                Instantiate(explosionBoxOnDetection, hitCollider.gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
+                Instantiate(soul, HitCollider.transform.position,Quaternion.identity);
+                //Instantiate(explosionBoxOnDetection, hitCollider.gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
                 counters.updateBoxesDestroyed(+1);
                 tUI.triggerUI();
                 boxAudioSource.pitch = UnityEngine.Random.Range(0.5f,1.1f);
                 boxAudioSource.Play();
-                Destroy(hitCollider.gameObject);
+                Destroy(HitCollider);
             }
-
-            if(Input.GetKeyDown(KeyCode.C) && hitCollider.gameObject.layer == 20 || ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f || triggerAttack)
+            
+            else if(Input.GetKeyDown(KeyCode.C) && HitCollider.layer == 20 ||  
+               Input.GetKeyDown(KeyCode.JoystickButton0) && HitCollider.layer == 20 || 
+               triggerAttack && HitCollider.layer == 20)
             {
-                //Invoke("explosionType", 5); 
-                Instantiate(explosionskullBoxOnDetection, hitCollider.GetComponent<Collider>().gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
-                //Instantiate(soul, hitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
+                Instantiate(explosionskullBoxOnDetectionImeddiate, HitCollider.transform.position,explosionBoxOnDetection.transform.rotation);
                 counters.updateBoxesDestroyed(+1);
                 tUI.triggerUI();
                 boxAudioSource.pitch = UnityEngine.Random.Range(0.5f,1.1f);
                 boxAudioSource.Play();
-                Destroy(hitCollider.GetComponent<Collider>().gameObject);
+                Destroy(HitCollider);
             }
 
-            if(Input.GetKeyDown(KeyCode.C) && hitCollider.gameObject.layer == 14 || ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") && ghostAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.9f || triggerAttack)
+            else if(Input.GetKeyDown(KeyCode.C) && HitCollider.layer == 14 || 
+               Input.GetKeyDown(KeyCode.JoystickButton0) && HitCollider.layer == 14 || 
+               triggerAttack && HitCollider.layer == 14)
             {
-                transform.parent.LookAt(hitCollider.gameObject.transform);
-                Instantiate(soul, hitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
-                Instantiate(explosionEnemyOnDetection, hitCollider.gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
-                EnemyAiTutorial enemy = hitCollider.gameObject.GetComponent<EnemyAiTutorial>();
+                transform.parent.LookAt(HitCollider.transform);
+                Instantiate(soul, HitCollider.transform.position,Quaternion.identity);
+                Instantiate(explosionEnemyOnDetection, HitCollider.transform.position,explosionBoxOnDetection.transform.rotation);
+                EnemyAiTutorial enemy = HitCollider.GetComponent<EnemyAiTutorial>();
                 try
                 {
                     enemy.enemyIsDead();
-                    hitCollider.gameObject.layer = 6;
+                    HitCollider.layer = 6;
                 }
                 catch(Exception e)
                 {
                     //Debug.Log("Enemy was still Detected");
                 }
+                Destroy(HitCollider);
             }
         }
 
@@ -251,61 +261,65 @@ public class detectObjectWithRaycast : MonoBehaviour
 
         //Jumping on Stuff
         Collider[] jumpHitColliders = Physics.OverlapSphere(transform.position, maxRayDistance,groundLayer);
-        foreach (var jumpHitCollider in jumpHitColliders)
+        foreach (var newJumpHitCollider in jumpHitColliders)
         {
-            if(jumpHitCollider.GetComponent<Collider>().gameObject.layer == 8)
+            GameObject jumpHitCollider = newJumpHitCollider.GetComponent<Collider>().gameObject;
+            if(jumpHitCollider.layer == 8)
             {
                 thirdPersonCameraMovement.Jump(true,1f);
-                Instantiate(explosionBoxOnDetection, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
-                Instantiate(soul, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
+                // Instantiate(explosionBoxOnDetection, jumpHitCollider.transform.position,explosionBoxOnDetection.transform.rotation);
+                Instantiate(soul, jumpHitCollider.transform.position,Quaternion.identity);
                 counters.updateBoxesDestroyed(+1);
                 tUI.triggerUI();
                 boxAudioSource.pitch = UnityEngine.Random.Range(0.5f,1.1f);
                 boxAudioSource.Play();
-                Destroy(jumpHitCollider.GetComponent<Collider>().gameObject);
+                Destroy(jumpHitCollider);
             }
 
-            if(jumpHitCollider.GetComponent<Collider>().gameObject.layer == 20)
+            else if(jumpHitCollider.layer == 20)
             {
+                jumpHitCollider.layer = 6;
                 thirdPersonCameraMovement.Jump(true,1f);
-                //Invoke("explosionType", 5); 
-                Instantiate(explosionskullBoxOnDetection, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
-                //Instantiate(soul, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
+                // Add a delay before instantiating the explosion (e.g., 2 seconds)
+                Instantiate(explosionskullBoxOnDetection, jumpHitCollider.transform.position,Quaternion.identity);
+                Instantiate(explosionskull,jumpHitCollider.transform.position,Quaternion.identity);
                 counters.updateBoxesDestroyed(+1);
                 tUI.triggerUI();
-                boxAudioSource.pitch = UnityEngine.Random.Range(0.5f,1.1f);
+                boxAudioSource.pitch = UnityEngine.Random.Range(0.5f, 1.1f);
                 boxAudioSource.Play();
-                Destroy(jumpHitCollider.GetComponent<Collider>().gameObject);
+                Destroy(jumpHitCollider);
+                // float delay = 5.0f;
+                // StartCoroutine(DelayedExplosion(delay, jumpHitCollider, explosionBoxOnDetection));
             }
 
-            if(jumpHitCollider.GetComponent<Collider>().gameObject.layer == 26)
+            else if(jumpHitCollider.layer == 26)
             {
                 thirdPersonCameraMovement.Jump(true,3f);
             }
 
-            if(jumpHitCollider.GetComponent<Collider>().gameObject.layer == 12)
+            else if(jumpHitCollider.layer == 12)
             {
                 counters.updateSoulEssence(+1);
             }
 
-            if(jumpHitCollider.GetComponent<Collider>().gameObject.layer == 14)
+            else if(jumpHitCollider.layer == 14)
             {
-                Instantiate(soul, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
-                Instantiate(explosionBoxOnDetection, jumpHitCollider.gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
-                EnemyAiTutorial enemy = jumpHitCollider.gameObject.GetComponent<EnemyAiTutorial>();
+                Instantiate(soul, jumpHitCollider.transform.position,soul.transform.rotation);
+                //Instantiate(explosionBoxOnDetection, jumpHitCollider.transform.position,explosionBoxOnDetection.transform.rotation);
+                EnemyAiTutorial enemy = jumpHitCollider.GetComponent<EnemyAiTutorial>();
                 thirdPersonCameraMovement.Jump(true,1f);
-                Instantiate(soul, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,soul.transform.rotation);
-                Instantiate(explosionEnemyOnDetection, jumpHitCollider.gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
+                //Instantiate(soul, jumpHitCollider.transform.position,soul.transform.rotation);
+                //Instantiate(explosionEnemyOnDetection, jumpHitCollider.transform.position,explosionBoxOnDetection.transform.rotation);
                 try
                 {
                     enemy.enemyIsDead();
-                    jumpHitCollider.gameObject.layer = 6;
+                    jumpHitCollider.layer = 6;
                 }
                 catch(Exception e)
                 {
                     //Debug.Log("Enemy was still Detected");
                 }
-                Destroy(jumpHitCollider.GetComponent<Collider>().gameObject);
+                Destroy(jumpHitCollider);
             }
 
             // else if(hit.collider.gameObject.layer == 10)
@@ -317,20 +331,10 @@ public class detectObjectWithRaycast : MonoBehaviour
 
     public void triggerAttackRange(bool isAttacking)
     {
-        if(isAttacking)
-        {
-            attackRange = 7.5f;
-        }
-        else
-        {
-            attackRange = 5f;
-        }
+
+        attackRange = 5f;
         triggerAttack = isAttacking;
     }
-    // void explosionType()
-    // {
-    //      Instantiate(explosionskullBoxOnDetection, jumpHitCollider.GetComponent<Collider>().gameObject.transform.position,explosionBoxOnDetection.transform.rotation);
-    // }
 
     private void OnDrawGizmosSelected()
     {

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class pressAnyKeyToStart : MonoBehaviour
 {
+    public AudioSource sourceBump;
+    public AudioClip clipSelect;
+    public AudioClip clipActivate;
+
     public GameObject startScreenCamera;
     public GameObject mainScreenCamera;
     public GameObject mainMenuCamera;
@@ -45,23 +49,33 @@ public class pressAnyKeyToStart : MonoBehaviour
                 startScreenActive = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.Z) && 
+        if(Input.GetKeyDown(KeyCode.Escape) && 
         !levelSelectScreen.activeSelf && 
         !deathScreen.activeSelf &&
-        !statScreen.activeSelf)
+        !statScreen.activeSelf &&
+        !menuScreenActive ||
+        Input.GetKeyDown(KeyCode.JoystickButton9) && 
+        !levelSelectScreen.activeSelf && 
+        !deathScreen.activeSelf &&
+        !statScreen.activeSelf &&
+        !menuScreenActive)
         {
             toggleMenuScreen(true);
             menuScreenActive = true;
-            // if(!menuScreenActive)
-            // {
-            //     toggleMenuScreen(true);
-            //     menuScreenActive = true;
-            // }
-            // else if(menuScreenActive)
-            // {
-            //     toggleMenuScreen(false);
-            //     menuScreenActive = false;
-            // }
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && 
+        !levelSelectScreen.activeSelf && 
+        !deathScreen.activeSelf &&
+        !statScreen.activeSelf &&
+        menuScreenActive ||
+        Input.GetKeyDown(KeyCode.JoystickButton9) && 
+        !levelSelectScreen.activeSelf && 
+        !deathScreen.activeSelf &&
+        !statScreen.activeSelf &&
+        menuScreenActive)
+        {
+            toggleMenuScreen(false);
+            menuScreenActive = false;
         }
 
         if(!levelSelectScreen.activeSelf)
@@ -71,6 +85,27 @@ public class pressAnyKeyToStart : MonoBehaviour
         else
         {
             levelSelectScreenIcon.SetActive(false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftArrow) &&
+           menuScreen.activeSelf ||
+           Input.GetKeyDown(KeyCode.RightArrow) &&
+           menuScreen.activeSelf ||
+           Input.GetKeyDown(KeyCode.UpArrow) &&
+           menuScreen.activeSelf ||
+           Input.GetKeyDown(KeyCode.DownArrow) &&
+           menuScreen.activeSelf)
+        {
+            sourceBump.clip = clipSelect;
+            sourceBump.pitch = Random.Range(0.8f, 1f);
+            sourceBump.Play(); 
+        }
+        else if(Input.GetKeyDown(KeyCode.Return) &&
+                menuScreen.activeSelf)
+        {
+            sourceBump.clip = clipActivate;
+            sourceBump.pitch = Random.Range(0.8f, 1f);
+            sourceBump.Play(); 
         }
     }
 

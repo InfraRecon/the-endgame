@@ -509,8 +509,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a72811462723c4dac0ab6a7e7bd2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleMin: 4
+  scaleMin: 5
   scaleMax: 6
+  xMultiply: 1
+  yMultiply: 2
+  zMultiply: 1
 --- !u!1 &4891304242156782336
 GameObject:
   m_ObjectHideFlags: 0

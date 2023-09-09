@@ -49,7 +49,8 @@ public class ThirdPersonCameraAttack : MonoBehaviour
         //     ghostAnimator.SetBool("IsAttacking", false);
         //     //noOfClicks = 0;
         // }
-        if(Input.GetKeyDown(KeyCode.C) && !ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack"))
+        if(Input.GetKeyDown(KeyCode.C) && !ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack") || 
+        Input.GetKeyDown(KeyCode.JoystickButton0) && !ghostAnimator.GetCurrentAnimatorStateInfo(0).IsName("Ghost Attack"))
         {
             SpinAttack();
             if(!thirdPersonCameraMovement.isGrounded)

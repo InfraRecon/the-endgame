@@ -37,7 +37,8 @@ public class triggerStatsMenu : MonoBehaviour
             Player.transform.rotation = target.rotation;
         }
         
-        if(insideTrigger && Input.GetKeyDown(KeyCode.C))
+        if(insideTrigger && Input.GetKeyDown(KeyCode.C) || 
+            insideTrigger && Input.GetKeyDown(KeyCode.JoystickButton3))
         {
             canvasStatsMenu.transform.GetChild(0).gameObject.SetActive(false);
             statsCamera.SetActive(false);
