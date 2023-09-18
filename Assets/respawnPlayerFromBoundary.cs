@@ -25,7 +25,8 @@ public class respawnPlayerFromBoundary : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(insideTrigger && !automaticReset && Input.GetKeyDown(KeyCode.C))
+        if(insideTrigger && !automaticReset && Input.GetKeyDown(KeyCode.C) ||
+        insideTrigger && !automaticReset && Input.GetKeyDown(KeyCode.JoystickButton3))
         {
             reset.resetPlayerToHub();
             loading.StartFade();

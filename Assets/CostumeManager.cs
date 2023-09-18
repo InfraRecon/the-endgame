@@ -49,6 +49,7 @@ public class CostumeManager : MonoBehaviour
 
     public void changeCostume(int costumeNumber)
     {
+        getBankedItems();
         costumeActiveArray = new bool[] { etherOriginalCostume, etherModernCostume, percyKinCostume, sunMonkCostume };
         currentSelectedCostume = costumeNumber;
         if(costumeActiveArray[costumeNumber] == false)
@@ -64,8 +65,8 @@ public class CostumeManager : MonoBehaviour
         soulReq = soulReqInitial * costumeNumber;
         gemReq =  gemReqInitial * costumeNumber;
 
-        soulText.text = (soulReq).ToString();
-        gemText.text = (gemReq).ToString();
+        soulText.text = (souls).ToString() + "/" + (soulReq).ToString();
+        gemText.text = (gems).ToString() + "/" + (gemReq).ToString();
 
         for(var i = 0; i < costumeFilterArray.Length; i++)
         {
