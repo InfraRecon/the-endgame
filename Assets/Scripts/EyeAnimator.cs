@@ -20,6 +20,7 @@ public class EyeAnimator : MonoBehaviour
     {
         // Start the timer with a random value between minTime and maxTime
         timer = Random.Range(minTime, maxTime);
+        faceTriggerName = "IsBlinking";
     }
 
     void Update()
